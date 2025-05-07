@@ -8,13 +8,6 @@ import static spark.Spark.get;
 import static spark.Spark.options;
 import static spark.Spark.staticFiles;
 
-//TESTESTESTE
-//teste parte dois
-//parte tres mothefuckl
-//comite 4
-//comite 5
-//TESTE FINAAAL
-//comit 6
 public class Main {
     public static void main(String[] args) {
         // Serve arquivos estáticos da pasta resources/public/
