@@ -16,6 +16,7 @@ function fecharCarrinho () {
 function adicionarAoCarrinho(nome, preco) {
     carrinho.push({ nome, preco });
     total += preco;
+    total = parseFloat(total.toFixed(2));
     qtdCarrinho++;
     console.log(qtdCarrinho);
     document.getElementById("contador").innerText = qtdCarrinho;
@@ -25,13 +26,13 @@ function adicionarAoCarrinho(nome, preco) {
 function removerDoCarrinho(index) {
     if(total>=0) {
         total -= carrinho[index].preco;
+        total = parseFloat(total.toFixed(2));
     }
     else {
         total=0;
     }
     
     qtdCarrinho--;
-    console.log(qtdCarrinho);
     document.getElementById("contador").innerText = qtdCarrinho;
     carrinho.splice(index, 1);
     atualizarCarrinho();
