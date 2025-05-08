@@ -16,6 +16,13 @@ body {
     font-family: 'Jacques Francois', sans-serif;
 }
 
+.borda {
+    border: 2px solid white;
+    padding: 4px;
+    display: inline-block;
+    font-size: 20px;
+  }
+
 .jacques-francois-regular {
     font-family: "Jacques Francois", serif;
     font-weight: 400;
@@ -128,7 +135,7 @@ a {
 }
 
 .hero-title {
-    font-size: 1.25rem;
+    font-size: 50px;
 }
 
 .hero-divider {
