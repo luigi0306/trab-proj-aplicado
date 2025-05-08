@@ -16,6 +16,19 @@ body {
     font-family: 'Jacques Francois', sans-serif;
 }
 
+.carrinho {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 25%;
+    height: 100vh;
+    background: #f1f1f1;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    display: none; /* Inicialmente oculto */
+}
+
 .borda {
     border: 2px solid white;
     padding: 4px;
