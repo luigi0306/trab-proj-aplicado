@@ -16,6 +16,13 @@ body {
     font-family: 'Jacques Francois', sans-serif;
 }
 
+.invisivel-funciona {
+    border: none;
+    opacity: 1;
+    pointer-events: auto;
+    background-color: #f7f7f6;
+}
+
 .carrinho {
     position: fixed;
     right: 0;
@@ -34,21 +41,20 @@ body {
     padding: 4px;
     display: inline-block;
     font-size: 20px;
-  }
+}
 
 .jacques-francois-regular {
     font-family: "Jacques Francois", serif;
     font-weight: 400;
     font-style: normal;
-  }
+}
 
-  
 .inter-font {
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-  }
+}
 
 /* Header */
 .header-container {
@@ -72,7 +78,7 @@ a {
 
 .sublinhar:hover {
     text-decoration: underline;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 .logo-icon,
