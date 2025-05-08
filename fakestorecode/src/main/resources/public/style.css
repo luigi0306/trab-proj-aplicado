@@ -16,6 +16,10 @@ body {
     font-family: 'Jacques Francois', sans-serif;
 }
 
+.botaoAddCart {
+    padding-top: 5px;
+}
+
 .invisivel-funciona {
     border: none;
     opacity: 1;

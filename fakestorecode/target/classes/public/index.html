@@ -65,7 +65,7 @@
                             <img src="${product.image}" alt="${product.title}">
                             <h3 class="sublinhar">${product.title}</h3>
                             <p class="inter-font">$${product.price}</p>
-                            <button onclick="adicionarAoCarrinho('${product.title}', ${product.price})">Adicionar</button>
+                            <div class="botaoAddCart"><button onclick="adicionarAoCarrinho('${product.title}', ${product.price})">Adicionar ao carrinho</button></div>   
                         </div>
                     `;
                 });
