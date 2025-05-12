@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noirelle - Le terre t-shirt</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jacques+Francois&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="fullscreen-roupa">
+      <div class="home-container">
+        <div class="header-container">
+          <span class="opacidade">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/febb7047caf042a2f0679868b8e01719a5c9f194?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
+              class="logo-icon"
+              alt="Logo"
+            />
+          </span>
+          <div class="brand-name">
+            <span class="opacidade">
+              <a href="index.html">Noirelle.</a>
+            </span>
+          </div>
+          <div class="header-icons">
+            <span class="opacidade">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/249e158625b7d3051ac49d083b13fb807a53f867?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
+                class="header-icon"
+                alt="Icon"
+              />
+            </span>
+            <button
+              id="botaoCarrinho"
+              onclick="abrirCarrinho()"
+              class="invisivel-funciona"
+            >
+              <span class="desenvisivel">
+                <span class="opacidade">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/3050118b09997a04f6bee439b384db68f6409fa5?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
+                    class="header-icon"
+                    alt="Icon"
+                  />
+                </span>
+              </span>
+              <span id="contador"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="border-line"></div>
+
+        <div class="nav-menu">
+          <div class="nav-item"><span class="sublinhar"><a href="categorias.html?id=jewelery">NOVIDADES</a></span></div>
+          <div class="nav-item"><span class="sublinhar"></span><a href="categorias.html?id=men's clothing">CAVALHEIROS</a></div>
+          <div class="nav-item"><span class="sublinhar"><a href="categorias.html?id=women's clothing">DAMAS</a></span></div>
+          <div class="nav-item"><span class="sublinhar"><a href="categorias.html?id=jewelery">STYLE DE VIE</a></span></div>
+        </div>
+
+        <div class="border-line-dark"></div>
+      </div>
+
+      <div class="main-produto">
+        <div class="produto-detail">
+          <div class="produto-grid">
+            <div id="produto"></div>
+
+            <div id="products" class="product-grid"></div>
+
+            <script>
+              const params = new URLSearchParams(window.location.search);
+              const category = params.get("id");
+
+              fetch('http://localhost:4567/api/products')
+                .then(response => response.json())
+                .then(products => {
+                  const container = document.getElementById('products');
+                  products.forEach(product => {
+                    if (product.category === category) {
+                      container.innerHTML += `
+                        <div class="product-card">
+                          <div class="separa">
+                            <a href="produto.html?id=${product.id}">
+                              <img src="${product.image}" alt="${product.title}">
+                              <h3 class="sublinhar">${product.title}</h3>
+                              <p class="inter-font">$${product.price}</p>
+                            </a>
+                          </div>
+                          <div class="botaoAddCart">
+                            <button onclick="adicionarAoCarrinho('${product.title}', ${product.price})">Adicionar ao carrinho</button>
+                          </div>
+                        </div>
+                      `;
+                    }
+                  });
+                })
+                .catch(error => console.error('Erro:', error));
+            </script>
+
+            <div class="contact-section">
+              <div class="contact-heading">CONTATO</div>
+              <div class="contact-item">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/05329ec5e5e21064ad041b604629f411e8fb8b78?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
+                  class="contact-icon"
+                  alt="Email icon"
+                />
+                <div class="contact-text underlined">noirelle.contato@gmail.com</div>
+              </div>
+              <div class="contact-item">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/11964c6df84b2f0b35b7e52dbde0ab769686f7ed?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
+                  class="contact-icon"
+                  alt="Instagram icon"
+                />
+                <div class="contact-text">@NoirelleVetements</div>
+              </div>
+              <div class="footer-text">Produzido por Luca Matos Parente o rei do mundo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="carrinho" id="carrinhoContainer">
+      <h2>Carrinho</h2>
+      <ul id="carrinho"></ul>
+      <p id="total">Total: R$0</p>
+      <button onclick="fecharCarrinho()">Fechar Carrinho</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
