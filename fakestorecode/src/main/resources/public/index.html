@@ -83,29 +83,32 @@
     <div id="products" class="product-grid"></div>
 
     <script>
-      fetch('http://localhost:4567/api/products')
+    fetch('http://localhost:4567/api/products')
         .then(response => response.json())
         .then(products => {
-          const container = document.getElementById('products');
-          products.forEach(product => {
+        const container = document.getElementById('products');
+        products.forEach(product => {
+            if (product.category === "women's clothing" || product.category === "men's clothing" || product.category === "jewelery" ) {
             container.innerHTML += `
-              <div class="product-card">
+                <div class="product-card">
                 <div class="separa">
-                  <a href="produto.html?id=${product.id}">
+                    <a href="produto.html?id=${product.id}">
                     <img src="${product.image}" alt="${product.title}">
                     <h3 class="sublinhar">${product.title}</h3>
                     <p class="inter-font">$${product.price}</p>
-                  </a>
+                    </a>
                 </div>
                 <div class="botaoAddCart">
-                  <button onclick="adicionarAoCarrinho('${product.title}', ${product.price})">Adicionar ao carrinho</button>
+                    <button onclick="adicionarAoCarrinho('${product.title}', ${product.price})">Adicionar ao carrinho</button>
                 </div>
-              </div>
+                </div>
             `;
-          });
+            }
+        });
         })
         .catch(error => console.error('Erro:', error));
     </script>
+
 
     <div class="carrinho" id="carrinhoContainer">
       <h2>Carrinho</h2>
