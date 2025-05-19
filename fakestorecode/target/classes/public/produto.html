@@ -24,7 +24,11 @@
               alt="Logo"
             />
           </span>
-          <div class="brand-name"><span class="opacidade">Noirelle.</span></div>
+          <div class="brand-name">
+            <span class="opacidade">
+              <a href="index.html">Noirelle.</a>
+            </span>
+          </div>
           <div class="header-icons">
             <span class="opacidade">
               <img
@@ -55,10 +59,25 @@
         <div class="border-line"></div>
 
         <div class="nav-menu">
-          <div class="nav-item"><span class="sublinhar">NOVIDADES</span></div>
-          <div class="nav-item"><span class="sublinhar">CAVALHEIROS</span></div>
-          <div class="nav-item"><span class="sublinhar">DAMAS</span></div>
-          <div class="nav-item"><span class="sublinhar">STYLE DE VIE</span></div>
+          <div class="nav-item">
+            <span class="sublinhar">
+              <a href="categorias.html?id=jewelery">NOVIDADES</a>
+            </span>
+          </div>
+          <div class="nav-item">
+            <span class="sublinhar"></span>
+            <a href="categorias.html?id=men's clothing">CAVALHEIROS</a>
+          </div>
+          <div class="nav-item">
+            <span class="sublinhar">
+              <a href="categorias.html?id=women's clothing">DAMAS</a>
+            </span>
+          </div>
+          <div class="nav-item">
+            <span class="sublinhar">
+              <a href="categorias.html?id=jewelery">STYLE DE VIE</a>
+            </span>
+          </div>
         </div>
 
         <div class="border-line-dark"></div>
@@ -80,6 +99,38 @@
                     <img src="${product.image}" alt="${product.title}" width="300">
                     <h1>${product.title}</h1>
                     <p><strong>Preço:</strong> R$ ${product.price.toFixed(2)}</p>
+
+                    <div class="produto-info-column">
+                      <div class="produto-info">
+                        <div class="produto-discount">5% de desconto no pix</div>
+                        <div class="size-label">Tamanho:</div>
+                        <div class="size-options">
+                          <div class="size-option"><div class="size-box">P</div></div>
+                          <div class="size-option"><div class="size-box">M</div></div>
+                          <div class="size-option"><div class="size-box">G</div></div>
+                        </div>
+                        <div class="quantity-container">
+                          <div class="quantity-selector">
+                            <div class="border-top"></div>
+                            <div class="quantity-content">
+                              <div class="quantity-wrapper">
+                                <div class="quantity-inner">
+                                  <div class="border-left"></div>
+                                  <div class="quantity-value">&lt; 1 &gt;</div>
+                                </div>
+                                <div class="border-bottom"></div>
+                              </div>
+                              <div class="border-right"></div>
+                            </div>
+                          </div>
+                          <div class="buy-button">
+                            <div class="botaoAddCart">
+                              <button onclick="adicionarAoCarrinho('${product.title}', ${product.price})">Comprar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   `;
                 })
                 .catch(() => {
@@ -87,83 +138,55 @@
                 });
             </script>
 
-            <div class="produto-info-column">
-              <div class="produto-info">
-                <div class="produto-discount">5% de desconto no pix</div>
-                <div class="size-label">Tamanho:</div>
-                <div class="size-options">
-                  <div class="size-option"><div class="size-box">P</div></div>
-                  <div class="size-option"><div class="size-box">M</div></div>
-                  <div class="size-option"><div class="size-box">G</div></div>
-                </div>
-                <div class="quantity-container">
-                  <div class="quantity-selector">
-                    <div class="border-top"></div>
-                    <div class="quantity-content">
-                      <div class="quantity-wrapper">
-                        <div class="quantity-inner">
-                          <div class="border-left"></div>
-                          <div class="quantity-value">&lt; 1 &gt;</div>
+            <div id="products" class="product-grid"></div>
+
+            <script>
+              fetch("http://localhost:4567/api/products")
+                .then((response) => response.json())
+                .then((products) => {
+                  const container = document.getElementById("products");
+
+                  products.forEach((product) => {
+                    container.innerHTML += `
+                      <div class="product-card">
+                        <div class="separa">
+                          <a href="produto.html?id=${product.id}">
+                            <img src="${product.image}" alt="${product.title}">
+                            <h3 class="sublinhar">${product.title}</h3>
+                            <p class="inter-font">$${product.price}</p>
+                          </a>
                         </div>
-                        <div class="border-bottom"></div>
+                        <div class="botaoAddCart">
+                          <button onclick="adicionarAoCarrinho('${product.title}', ${product.price})">Adicionar ao carrinho</button>
+                        </div>
                       </div>
-                      <div class="border-right"></div>
-                    </div>
-                  </div>
-                  <div class="buy-button">Comprar</div>
-                </div>
+                    `;
+                  });
+                })
+                .catch((error) => console.error("Erro:", error));
+            </script>
+
+            <div class="contact-section">
+              <div class="contact-heading">CONTATO</div>
+              <div class="contact-item">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/05329ec5e5e21064ad041b604629f411e8fb8b78?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
+                  class="contact-icon"
+                  alt="Email icon"
+                />
+                <div class="contact-text underlined">noirelle.contato@gmail.com</div>
               </div>
+              <div class="contact-item">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/11964c6df84b2f0b35b7e52dbde0ab769686f7ed?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
+                  class="contact-icon"
+                  alt="Instagram icon"
+                />
+                <div class="contact-text">@NoirelleVetements</div>
+              </div>
+              <div class="footer-text">Produzido por Luca Matos Parente o rei do mundo</div>
             </div>
           </div>
-        </div>
-
-        <div id="products" class="product-grid"></div>
-
-        <script>
-          fetch("http://localhost:4567/api/products")
-            .then((response) => response.json())
-            .then((products) => {
-              const container = document.getElementById("products");
-
-              products.forEach((product) => {
-                container.innerHTML += `
-                  <div class="product-card">
-                    <div class="separa">
-                      <a href="produto.html?id=${product.id}">
-                        <img src="${product.image}" alt="${product.title}">
-                        <h3 class="sublinhar">${product.title}</h3>
-                        <p class="inter-font">$${product.price}</p>
-                      </a>
-                    </div>
-                    <div class="botaoAddCart">
-                      <button onclick="adicionarAoCarrinho('${product.title}', ${product.price})">Adicionar ao carrinho</button>
-                    </div>
-                  </div>
-                `;
-              });
-            })
-            .catch((error) => console.error("Erro:", error));
-        </script>
-
-        <div class="contact-section">
-          <div class="contact-heading">CONTATO</div>
-          <div class="contact-item">
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/05329ec5e5e21064ad041b604629f411e8fb8b78?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
-              class="contact-icon"
-              alt="Email icon"
-            />
-            <div class="contact-text underlined">noirelle.contato@gmail.com</div>
-          </div>
-          <div class="contact-item">
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/11964c6df84b2f0b35b7e52dbde0ab769686f7ed?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
-              class="contact-icon"
-              alt="Instagram icon"
-            />
-            <div class="contact-text">@NoirelleVetements</div>
-          </div>
-          <div class="footer-text">Produzido por Luca Matos Parente o rei do mundo</div>
         </div>
       </div>
     </div>
