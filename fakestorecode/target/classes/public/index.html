@@ -12,8 +12,8 @@
     />
   </head>
   <body>
-    <div class="home-container">
-      <div class="header-container">
+    <section id="secao2">
+    <div class="header-container">
         <span class="opacidade">
           <img
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/febb7047caf042a2f0679868b8e01719a5c9f194?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
@@ -23,7 +23,9 @@
         </span>
         <div class="brand-name">
           <span class="opacidade">
-            <a href="index.html">Noirelle.</a>
+            <nav>
+              <a href="#secao2">Noirelle.</a>
+            </nav>
           </span>
         </div>
         <div class="header-icons">
@@ -36,7 +38,7 @@
           </span>
           <button
             id="botaoCarrinho"
-            onclick="abrirCarrinho()"
+            onclick="abrirCarrinho(event)"
             class="invisivel-funciona"
           >
             <span class="desenvisivel">
@@ -51,10 +53,10 @@
             <span id="contador"></span>
           </button>
         </div>
+        <div class="border-line"></div>
       </div>
 
-      <div class="border-line"></div>
-
+    <div class="home-container">
       <div class="nav-menu">
         <div class="nav-item">
           <span class="sublinhar">
@@ -62,8 +64,7 @@
           </span>
         </div>
         <div class="nav-item">
-          <span class="sublinhar"></span>
-          <a href="categorias.html?id=men's clothing">CAVALHEIROS</a>
+          <span class="sublinhar"> <a href="categorias.html?id=men's clothing">CAVALHEIROS</a></span>
         </div>
         <div class="nav-item">
           <span class="sublinhar">
@@ -78,8 +79,9 @@
       </div>
 
       <div class="border-line-dark"></div>
+    </div>
 
-      <div class="hero-section">
+    <div class="hero-section">
         <img
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/c516e2ea8e073279d9dfbb7b58634a37c406b202?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
           class="hero-image"
@@ -88,13 +90,17 @@
         <div class="hero-content">
           <div class="hero-title">Tendance Bucolique</div>
           <div class="hero-cta">
-            <span class="borda opacidade">COMPRE AGORA</span>
+            <nav>
+              <a href="#secao1"><span class="borda opacidade">COMPRE AGORA</span></a>
+            </nav>
             <div class="cta-text"></div>
+
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
+    <section id="secao1">
     <div id="products" class="product-grid"></div>
 
     <script>
@@ -129,6 +135,7 @@
         })
         .catch((error) => console.error('Erro:', error));
     </script>
+    </section>
 
     <div class="carrinho" id="carrinhoContainer">
       <h2>Carrinho</h2>

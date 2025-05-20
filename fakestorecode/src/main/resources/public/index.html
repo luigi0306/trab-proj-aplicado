@@ -12,6 +12,7 @@
     />
   </head>
   <body>
+    <section id="secao2">
     <div class="header-container">
         <span class="opacidade">
           <img
@@ -22,7 +23,9 @@
         </span>
         <div class="brand-name">
           <span class="opacidade">
-            <a href="index.html">Noirelle.</a>
+            <nav>
+              <a href="#secao2">Noirelle.</a>
+            </nav>
           </span>
         </div>
         <div class="header-icons">
@@ -87,12 +90,17 @@
         <div class="hero-content">
           <div class="hero-title">Tendance Bucolique</div>
           <div class="hero-cta">
-            <span class="borda opacidade">COMPRE AGORA</span>
+            <nav>
+              <a href="#secao1"><span class="borda opacidade">COMPRE AGORA</span></a>
+            </nav>
             <div class="cta-text"></div>
+
           </div>
         </div>
       </div>
+    </section>
 
+    <section id="secao1">
     <div id="products" class="product-grid"></div>
 
     <script>
@@ -127,6 +135,7 @@
         })
         .catch((error) => console.error('Erro:', error));
     </script>
+    </section>
 
     <div class="carrinho" id="carrinhoContainer">
       <h2>Carrinho</h2>

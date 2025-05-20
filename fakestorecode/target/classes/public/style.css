@@ -18,9 +18,15 @@ body {
 
 /*produtohtml*/
 
-    
+.main-produto {
+    margin-top: 10px;
+} 
 
 /**/
+
+html {
+    scroll-behavior: smooth;
+}
 
 .botaoAddCart {
     padding-top: 5px;
@@ -67,13 +73,27 @@ body {
 }
 
 /* Header */
+
 .header-container {
+    position: sticky;
+    background-color: #f7f7f6;
+    top: 0;
+    z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1.25rem;
     flex-wrap: wrap;
-    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 0px;
+}
+
+.border-line{
+    margin-left: -10px;
+    margin-right: -10px;
+    width: 1000%;
+    opacity: 0.4;
+    border: 1px solid #d6d3d1;
 }
 
 a {
@@ -109,11 +129,10 @@ a {
 }
 
 /* Linhas divisórias */
-.border-line,
 .border-line-dark {
     padding-top: 0px;
     width: 100%;
-    opacity: 0.4;
+    opacity: 0.2;
     border: 1px solid #d6d3d1;
     margin: 1rem 1;
 }
