@@ -120,7 +120,7 @@
                     </a>
                   </div>
                   <div class="botaoAddCart">
-                    <button onclick="adicionarAoCarrinho('${product.title}', ${product.price})">
+                    <button onclick="adicionarAoCarrinho('${product.title}', ${product.price}, '${product.image}')">
                       Adicionar ao carrinho
                     </button>
                   </div>
@@ -136,10 +136,8 @@
     <div class="carrinho" id="carrinhoContainer">
       <h2>Carrinho</h2>
       <div class="cart-item">
-        <img src="images/foto1.png" alt="Teste">
          <div class="item-details">
         <ul id="carrinho"></ul>
-        <h3>Le terre t-shirt</h3>
         <p id="total">Total: R$0</p>
         </div>
       </div>

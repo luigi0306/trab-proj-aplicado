@@ -32,8 +32,8 @@ document.addEventListener("click", function (event) {
 });
 
 // Adicionar item
-function adicionarAoCarrinho(nome, preco) {
-    carrinho.push({ nome, preco });
+function adicionarAoCarrinho(nome, preco, img) {
+    carrinho.push({ nome, preco, img });
     total += preco;
     total = parseFloat(total.toFixed(2));
     qtdCarrinho++;
@@ -56,24 +56,36 @@ function removerDoCarrinho(index) {
     atualizarCarrinho();
 }
 
-// Atualizar conteúdo
+
 function atualizarCarrinho() {
     const carrinhoElemento = document.getElementById("carrinho");
     carrinhoElemento.innerHTML = "";
 
+
     carrinho.forEach((item, index) => {
         const li = document.createElement("li");
-        li.textContent = `${item.nome} - R$${item.preco}`;
+    
+        const img = document.createElement("img");
+        img.src = item.img;
+        img.alt = item.nome;
+        img.style.width = "50px"; 
+    
+       
+        const texto = document.createTextNode(` ${item.nome} - R$${item.preco}`);
+    
         const botaoRemover = document.createElement("button");
         botaoRemover.textContent = "Remover";
         botaoRemover.onclick = (event) => {
             event.stopPropagation();
             removerDoCarrinho(index);
-        } 
-            
+        };
+    
+        li.appendChild(img);
+        li.appendChild(texto);
         li.appendChild(botaoRemover);
         carrinhoElemento.appendChild(li);
     });
+    
 
     document.getElementById("total").textContent = `Total: R$${total}`;
 }
