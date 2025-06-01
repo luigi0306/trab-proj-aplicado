@@ -85,10 +85,8 @@
         <div class="produto-detail">
           <div class="produto-grid">
             <div id="produto"></div>
-
-            <div id="products" class="product-grid"></div>
-
-            <script>
+            <div id="products" class="product-grid">
+              <script>
               const params = new URLSearchParams(window.location.search);
               const category = params.get("id");
 
@@ -117,6 +115,7 @@
                 })
                 .catch(error => console.error('Erro:', error));
             </script>
+            </div>
 
             <div class="contact-section">
               <div class="contact-heading">CONTATO</div>
