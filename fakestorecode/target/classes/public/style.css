@@ -49,8 +49,78 @@ html {
     padding: 20px;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
     overflow-y: auto;
+    box-sizing: border-box;
+    z-index: 1000;
     display: none; /* Inicialmente oculto */
 }
+
+
+
+.cart-sidebar h2 {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .cart-item img {
+      width: 50px;
+      height: 60px;
+      object-fit: cover;
+    }
+
+    .item-details {
+      flex: 1;
+    }
+
+    .item-details h3 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: normal;
+    }
+
+    .price, .frete, .total {
+      font-size: 0.9rem;
+      margin: 5px 0;
+    }
+
+    .total {
+      font-weight: bold;
+      border-top: 1px solid #ddd;
+      padding-top: 10px;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      background-color: #5a3b1e;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      margin-top: 15px;
+      text-transform: uppercase;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    .logo {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .logo img {
+      width: 100px;
+      opacity: 0.8;
+    }
+
+
+
 
 .borda {
     border: 2px solid white;
