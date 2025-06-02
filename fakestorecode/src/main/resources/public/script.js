@@ -8,17 +8,20 @@ const botaoCarrinho = document.getElementById("botaoCarrinho");
 // Estiliza para sobrepor outros elementos
 carrinhoContainer.style.position = 'fixed';
 carrinhoContainer.style.zIndex = '9999';
+carrinhoContainer.style.overflowY = 'auto';  
 
 // Abrir carrinho
 function abrirCarrinho(event) {
     event.stopPropagation(); // Evita fechar ao clicar no botão
     carrinhoContainer.style.display = "block";
+    document.body.style.overflow = "hidden";
     console.log("A");
 }
 
 // Fechar carrinho
 function fecharCarrinho() {
     console.log("B");
+    document.body.style.overflow = "auto";
     carrinhoContainer.style.display = "none";
 }
 
@@ -64,7 +67,6 @@ function atualizarCarrinho() {
 
     carrinho.forEach((item, index) => {
         const li = document.createElement("li");
-    
         const img = document.createElement("img");
         img.src = item.img;
         img.alt = item.nome;
