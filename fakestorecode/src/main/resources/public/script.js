@@ -59,8 +59,16 @@ function removerDoCarrinho(index) {
     }
 
     qtdCarrinho--;
+    if(qtdCarrinho < 0) {
+        qtdCarrinho = 0;
+    }
     document.getElementById("contador").innerText = qtdCarrinho;
-    carrinho.splice(index, 1);
+    if (carrinho[index].qtd > 1) {
+        carrinho[index].qtd--;
+    } else {
+        carrinho.splice(index, 1);
+    }
+    
     atualizarCarrinho();
 }
 
