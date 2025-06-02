@@ -35,12 +35,17 @@ document.addEventListener("click", function (event) {
 });
 
 // Adicionar item
-function adicionarAoCarrinho(nome, preco, img) {
-    carrinho.push({ nome, preco, img });
+function adicionarAoCarrinho(nome, preco, img, id) {
+    const item = carrinho.find(item => item.id === id);
+    if (item) {
+        item.qtd++;
+    } else {
+        carrinho.push({ nome, preco, img, id, qtd: 1 });
+        qtdCarrinho++;
+        document.getElementById("contador").innerText = qtdCarrinho;
+    }
     total += preco;
     total = parseFloat(total.toFixed(2));
-    qtdCarrinho++;
-    document.getElementById("contador").innerText = qtdCarrinho;
     atualizarCarrinho();
 }
 
@@ -73,7 +78,7 @@ function atualizarCarrinho() {
         img.style.width = "50px"; 
     
        
-        const texto = document.createTextNode(` ${item.nome} - R$${item.preco}`);
+        const texto = document.createTextNode(` ${item.nome} - R$${item.preco} - Qtd: ${item.qtd}  `);
     
         const botaoRemover = document.createElement("button");
         botaoRemover.textContent = "Remover";
