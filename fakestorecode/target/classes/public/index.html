@@ -120,7 +120,7 @@
                     </a>
                   </div>
                   <div class="botaoAddCart">
-                    <button onclick="adicionarAoCarrinho('${product.title}', ${product.price}, '${product.image}')">
+                    <button onclick="adicionarAoCarrinho('${product.title}', ${product.price}, '${product.image}', ${product.id})">
                       Adicionar ao carrinho
                     </button>
                   </div>
@@ -134,14 +134,26 @@
     </section>
 
     <div class="carrinho" id="carrinhoContainer">
-      <h2>Carrinho</h2>
-      <div class="cart-item">
-         <div class="item-details">
-        <ul id="carrinho"></ul>
-        <p id="total">Total: R$0</p>
-        </div>
+      
+      <h1 style="padding-top: 10px; text-align: center; color: #412C0C;">Carrinho</h1>
+      
+
+      <div class="cart-item scroll-box">
+          <div class="item-details">
+            <ul id="carrinho" style="list-style-type: none; padding-left: 20px;";></ul>
+            <hr style="border: 1px solid #6E4A13; opacity: 0.3; margin: 30px 0;">
+            <div style="display: flex";>
+              <span class="total2">Total:</span>
+              <div class="total" id="total"></div>
+            </div>       
+          </div>
       </div>
-      <button onclick="fecharCarrinho()">Fechar Carrinho</button>
+
+      <center>
+        <button class="botao-compra">Iniciar Compra</button>
+        <br>
+        <button onclick="fecharCarrinho()" style="border: none; padding-top: 10px; color: #6E4A13;" class="sublinhar">Fechar Carrinho</button>
+      </center>
     </div>
 
     <div class="contact-section">

@@ -80,13 +80,19 @@ function atualizarCarrinho() {
 
     carrinho.forEach((item, index) => {
         const li = document.createElement("li");
+        li.style.display = "flex";
+        li.style.alignItems = "top";
+        
         const img = document.createElement("img");
+        img.style.marginRight = "10px";
+        img.style.marginBottom  = "20px";
         img.src = item.img;
         img.alt = item.nome;
         img.style.width = "50px"; 
     
        
-        const texto = document.createTextNode(` ${item.nome} - R$${item.preco} - Qtd: ${item.qtd}  `);
+        const texto = document.createElement("span");
+        texto.innerHTML = `${item.nome} <br> R$${item.preco} - Qtd: ${item.qtd}`;
     
         const botaoRemover = document.createElement("button");
         botaoRemover.textContent = "Remover";
@@ -102,5 +108,5 @@ function atualizarCarrinho() {
     });
     
 
-    document.getElementById("total").textContent = `Total: R$${total}`;
+    document.getElementById("total").textContent = `R$ ${total}`;
 }

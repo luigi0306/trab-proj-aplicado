@@ -54,6 +54,19 @@ html {
     display: none; /* Inicialmente oculto */
 }
 
+.botao-compra {
+    background-color: #6E4A13; /* Verde */
+    color: white;
+    padding: 15px 130px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .botao-compra:hover {
+    background-color: #52360d; /* Verde um pouco mais escuro no hover */
+  }
 
 
 .cart-sidebar h2 {
@@ -66,7 +79,7 @@ html {
     .cart-item {
       display: flex;
       gap: 10px;
-      margin-bottom: 15px;
+      margin-bottom: 25px;
     }
 
     .cart-item img {
@@ -77,6 +90,7 @@ html {
 
     .item-details {
       flex: 1;
+      padding-top: 25px;
     }
 
     .item-details h3 {
@@ -91,9 +105,23 @@ html {
     }
 
     .total {
+      color: #412C0C;
       font-weight: bold;
+      font-size: 1.1rem;
       border-top: 1px solid #ddd;
-      padding-top: 10px;
+      margin-bottom: -10px;
+      padding-left: 235px;
+      border: none;
+    }
+
+    .total2 {
+      color: #412C0C;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border-top: 1px solid #ddd;
+      margin-bottom: -10px;
+      padding-left: 40px;
+      border: none;
     }
 
     .checkout-btn {
