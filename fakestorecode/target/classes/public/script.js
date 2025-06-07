@@ -96,6 +96,7 @@ function atualizarCarrinho() {
     
         const botaoRemover = document.createElement("button");
         botaoRemover.textContent = "Remover";
+        botaoRemover.classList.add("btn-remover");
         botaoRemover.onclick = (event) => {
             event.stopPropagation();
             removerDoCarrinho(index);

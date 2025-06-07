@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Noirelle - Le terre t-shirt</title>
+    <title>Noirelle</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,7 +14,7 @@
     />
   </head>
   <body>
-    <div class="fullscreen-roupa">
+    <div>
       <div class="header-container">
         <span class="opacidade">
           <img
@@ -84,7 +84,7 @@
       <div class="main-produto">
         <div class="produto-detail">
           <div class="produto-grid">
-            <div id="produto"></div>
+            <div id="produto" class="fullscreen-roupa"></div>
             <script>
               const params = new URLSearchParams(window.location.search);
               const productId = params.get("id");
@@ -94,41 +94,49 @@
                 .then((res) => res.json())
                 .then((product) => {
                   container.innerHTML = `
-                    <img src="${product.image}" alt="${product.title}" width="300">
-                    <h1>${product.title}</h1>
-                    <p><strong>Preço:</strong> R$ ${product.price.toFixed(2)}</p>
+                    <div class="linha">
+                      <img src="${product.image}" alt="${product.title}" width="300">
 
-                    <div class="produto-info-column">
-                      <div class="produto-info">
-                        <div class="produto-discount">5% de desconto no pix</div>
-                        <div class="size-label">Tamanho:</div>
-                        <div class="size-options">
-                          <div class="size-option"><div class="size-box">P</div></div>
-                          <div class="size-option"><div class="size-box">M</div></div>
-                          <div class="size-option"><div class="size-box">G</div></div>
-                        </div>
-                        <div class="quantity-container">
-                          <div class="quantity-selector">
-                            <div class="border-top"></div>
-                            <div class="quantity-content">
-                              <div class="quantity-wrapper">
-                                <div class="quantity-inner">
-                                  <div class="border-left"></div>
-                                  <div class="quantity-value">&lt; 1 &gt;</div>
-                                </div>
-                                <div class="border-bottom"></div>
-                              </div>
-                              <div class="border-right"></div>
-                            </div>
+                      <div class="coluna">
+                      <h1>${product.title}</h1>
+                      <h3 style="color: ##412C0C">R$ ${product.price.toFixed(2)}</h3>
+
+                      <div class="produto-info-column">
+                        <div class="produto-info">
+                          <div class="produto-discount">5% de desconto no pix</div>
+                          <div class="size-label">Tamanho:</div>
+                          <div class="size-options linha">
+                            
+                              <div class="size-option"><div class="size-box">P</div></div>
+                              <div class="size-option"><div class="size-box">M</div></div>
+                              <div class="size-option"><div class="size-box">G</div></div>
+                            
                           </div>
-                          <div class="buy-button">
-                            <div class="botaoAddCart">
-                              <button onclick="adicionarAoCarrinho('${product.title}', ${product.price})">Comprar</button>
+
+                          <div class="quantity-container">
+                            <div class="quantity-selector">
+                              <div class="border-top"></div>
+                              <div class="quantity-content">
+                                <div class="quantity-wrapper">
+                                  <div class="quantity-inner">
+                                    <div class="border-left"></div>
+                                    <div class="quantity-value">&lt; 1 &gt;</div>
+                                  </div>
+                                  <div class="border-bottom"></div>
+                                </div>
+                                <div class="border-right"></div>
+                              </div>
+                            </div>
+                            <div class="buy-button">
+                              <div class="botaoAddCart">
+                                <button onclick="adicionarAoCarrinho('${product.title}', ${product.price})">Comprar</button>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
+                  </div>
                   `;
                 })
                 .catch(() => {
@@ -164,36 +172,62 @@
                 .catch((error) => console.error("Erro:", error));
             </script>
 
-            <div class="contact-section">
-              <div class="contact-heading">CONTATO</div>
-              <div class="contact-item">
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/05329ec5e5e21064ad041b604629f411e8fb8b78?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
-                  class="contact-icon"
-                  alt="Email icon"
-                />
-                <div class="contact-text underlined">noirelle.contato@gmail.com</div>
+              <div class="contact-section">
+                <div class="contact-title">CONTATO</div>
+                <div class="contact-item">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/05329ec5e5e21064ad041b604629f411e8fb8b78?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
+                    class="contact-icon"
+                    alt="Email"
+                    />
+                    <div>
+                      <a href="https://www.instagram.com/vinicius.marques.vinicius" target="_blank">
+                        <span class="opacidade">noirelle.contato@gmail.com</span>
+                      </a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/11964c6df84b2f0b35b7e52dbde0ab769686f7ed?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
+                    class="contact-icon"
+                    alt="Social"
+                  />
+                  <div class="contact-text">
+                    <a href="https://www.instagram.com/vinicius.marques.vinicius" target="_blank">
+                      <span class="opacidade">@NoirelleVetements</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="footer-text">
+                  Produzido por Luca Matos Parente e Luigi Fonini o rei do mundo
+                </div>
               </div>
-              <div class="contact-item">
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/11964c6df84b2f0b35b7e52dbde0ab769686f7ed?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
-                  class="contact-icon"
-                  alt="Instagram icon"
-                />
-                <div class="contact-text">@NoirelleVetements</div>
-              </div>
-              <div class="footer-text">Produzido por Luca Matos Parente o rei do mundo</div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
     <div class="carrinho" id="carrinhoContainer">
-      <h2>Carrinho</h2>
-      <ul id="carrinho"></ul>
-      <p id="total">Total: R$0</p>
-      <button onclick="fecharCarrinho()">Fechar Carrinho</button>
+      
+      <h1 style="padding-top: 10px; text-align: center; color: #412C0C;">Carrinho</h1>
+      
+
+      <div class="cart-item scroll-box">
+          <div class="item-details">
+            <ul id="carrinho" style="list-style-type: none; padding-left: 20px;";></ul>
+            <hr style="border: 1px solid #6E4A13; opacity: 0.3; margin: 30px 0;">
+            <div style="display: flex";>
+              <span class="total2">Total:</span>
+              <div class="total" id="total"></div>
+            </div>       
+          </div>
+      </div>
+
+      <center>
+        <button class="botao-compra">Iniciar Compra</button>
+        <br>
+        <button onclick="fecharCarrinho()" style="border: none; padding-top: 10px; color: #6E4A13;" class="sublinhar">Fechar Carrinho</button>
+      </center>
     </div>
 
     <script src="script.js"></script>
