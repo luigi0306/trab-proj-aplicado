@@ -96,15 +96,15 @@
             <div id="produto"></div>
             <div id="products" class="product-grid">
               <script>
+                const urlParams = new URLSearchParams(window.location.search);
+                const categoria = urlParams.get('id');
                 fetch('http://localhost:4567/api/products')
                   .then((response) => response.json())
                   .then((products) => {
                     const container = document.getElementById('products');
                     products.forEach((product) => {
                       if (
-                        product.category === "women's clothing" ||
-                        product.category === "men's clothing" ||
-                        product.category === "jewelery"
+                        product.category === categoria
                       ) {
                         container.innerHTML += `
                           <div class="product-card">
