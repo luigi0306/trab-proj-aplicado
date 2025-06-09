@@ -120,6 +120,7 @@ function atualizarCarrinho() {
         li.appendChild(botaoRemover);
         carrinhoElemento.appendChild(li);
         total += item.preco * item.qtd;
+        total = parseFloat(total.toFixed(2));
         qtdCarrinho++;
     });
     
@@ -140,7 +141,7 @@ document.getElementById("searchInput").addEventListener("input", async (event) =
   const resultsContainer = document.getElementById("results");
   resultsContainer.innerHTML = "";
 
-  if (query.length > 0) {
+  if (query.length > 1) {
     const response = await fetch(`http://localhost:4567/api/products`);
     const products = await response.json();
   
@@ -150,7 +151,7 @@ document.getElementById("searchInput").addEventListener("input", async (event) =
   
     filteredProducts.forEach((product) => {
       // Cria o elemento lin (substituto para li)
-      const lin = document.createElement("li");
+      const lin = document.createElement("div");
 
       lin.addEventListener("click", () => {
         window.location.href = `produto.html?id=${product.id}`;
@@ -162,10 +163,17 @@ document.getElementById("searchInput").addEventListener("input", async (event) =
       img2.alt = product.title; // Texto alternativo
       img2.style.width = "50px"; // Ajuste o tamanho da imagem, se necessário
       img2.style.marginRight = "10px";
+      img2.style.marginBottom  = "20px";
+      img2.style.cursor = "pointer"; 
+
+      lin.style.display = "flex";
+      lin.style.alignItems = "top";
+      lin.style.cursor = "pointer";
+      lin.style.backgroundColor = "#f4f4f4";
   
       // Cria o elemento de texto (nome do produto)
       const text2 = document.createElement("span");
-      text2.textContent = product.title;
+      text2.innerHTML = product.title + "<br>" + "R$ " + product.price.toFixed(2);
   
       // Adiciona a imagem e o texto ao lin
       lin.appendChild(img2);
