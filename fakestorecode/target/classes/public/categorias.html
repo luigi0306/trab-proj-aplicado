@@ -154,12 +154,28 @@
       </div>
     
 
-    <div class="carrinho" id="carrinhoContainer">
-      <h2>Carrinho</h2>
-      <ul id="carrinho"></ul>
-      <p id="total">Total: R$0</p>
-      <button onclick="fecharCarrinho()">Fechar Carrinho</button>
-    </div>
+      <div class="carrinho" id="carrinhoContainer">
+      
+        <h1 style="padding-top: 10px; text-align: center; color: #412C0C;">Carrinho</h1>
+        
+  
+        <div class="cart-item scroll-box">
+            <div class="item-details">
+              <ul id="carrinho" style="list-style-type: none; padding-left: 20px;";></ul>
+              <hr style="border: 1px solid #6E4A13; opacity: 0.3; margin: 30px 0;">
+              <div style="display: flex";>
+                <span class="total2">Total:</span>
+                <div class="total" id="total"></div>
+              </div>       
+            </div>
+        </div>
+  
+        <center>
+          <button class="botao-compra">Finalizar Compra</button>
+          <br>
+          <button onclick="fecharCarrinho()" style="border: none; padding-top: 10px; color: #6E4A13; background-color: #f7f7f6;" class="sublinhar">Fechar Carrinho</button>
+        </center>
+      </div>
 
     <script src="script.js"></script>
   </body>
