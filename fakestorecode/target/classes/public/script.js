@@ -137,6 +137,10 @@ document.getElementById("searchInput").addEventListener("input", async (event) =
     filteredProducts.forEach((product) => {
       // Cria o elemento lin (substituto para li)
       const lin = document.createElement("li");
+
+      lin.addEventListener("click", () => {
+        window.location.href = `produto.html?id=${product.id}`;
+      });
   
       // Cria o elemento de imagem
       const img2 = document.createElement("img");
