@@ -310,6 +310,10 @@ a {
 .hero-title {
     font-size: 50px;
 }
+.hero-title1 {
+    font-size: 60px;
+    color: #5a3b1e;
+}
 
 .hero-divider {
     margin: 0.25rem auto;

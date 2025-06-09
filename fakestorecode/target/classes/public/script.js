@@ -176,3 +176,5 @@ document.getElementById("searchInput").addEventListener("input", async (event) =
     });
   }
 });
+
+/*carrinho final */
