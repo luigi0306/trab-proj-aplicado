@@ -109,5 +109,5 @@ function atualizarCarrinho() {
     });
     
 
-    document.getElementById("total").textContent = `R$ ${total}`;
+    document.getElementById("total").textContent = ` R$ ${total}`;
 }
