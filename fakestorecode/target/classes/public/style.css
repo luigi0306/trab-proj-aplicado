@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -46,7 +45,7 @@ html {
     width: 25%;
     height: 100vh;
     background: #f1f1f1;
-    padding: 20px;
+    padding: 1rem;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
     overflow-y: auto;
     box-sizing: border-box;
@@ -57,10 +56,10 @@ html {
 .botao-compra {
     background-color: #6E4A13; 
     color: white;
-    padding: 15px 130px;
+    padding: 1rem 7rem;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 1rem;
     cursor: pointer;
   }
 
@@ -120,14 +119,24 @@ html {
       background-color: #dcdcdc;
     }
 
+    .total-container {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 2rem; /* espaço da direita, ajuste conforme necessário */
+        gap: 0.5rem;
+    }
+
     .total {
-      color: #412C0C;
-      font-weight: bold;
-      font-size: 1.1rem;
-      border-top: 1px solid #ddd;
-      margin-bottom: -10px;
-      padding-left: 235px;
-      border: none;
+        color: #412C0C;
+        font-weight: bold;
+        font-size: 1.1rem;
+        border-top: 1px solid #ddd;
+        margin-bottom: -10px;
+        border: none;
+        text-align: right;
+        min-width: 80px;
+        padding-left: 0; /* Remove o padding-left antigo */
     }
 
     .total2 {
@@ -136,7 +145,7 @@ html {
       font-size: 1.1rem;
       border-top: 1px solid #ddd;
       margin-bottom: -10px;
-      padding-left: 40px;
+      padding-left: 0.2rem;
       border: none;
     }
 
@@ -228,6 +237,10 @@ a {
     width: 34px;
     aspect-ratio: 1/1;
     object-fit: contain;
+}
+
+.logo-icon {
+    cursor: pointer;
 }
 
 .brand-name {
@@ -447,21 +460,139 @@ a {
     cursor: pointer;
 }
 
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: #f4f4f4;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+#closeSidebar {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#results {
+    list-style: none;
+    padding: 0;
+}
+
+#results li {
+    margin: 5px 0;
+    padding: 10px;
+    background: #ddd;
+    cursor: pointer;
+}
+
 /* Responsivo */
-@media (max-width: 768px) {
-    .brand-name {
-        font-size: 2.25rem;
+@media (max-width: 1400px) {
+    .carrinho {
+        width: 50vw;
+        min-width: 220px;
+        max-width: 100vw;
+        padding: 0.5rem;
     }
-
-    .hero-section {
-        padding: 6rem 1.25rem;
-    }
-
-    .product-card img {
-        height: 150px;
-    }
-
     .product-grid {
-        gap: 16px;
+        padding: 0 2rem;
     }
+    .contact-section {
+        padding: 0 40px;
+    }
+}
+
+/* Responsivo para celulares */
+@media (max-width: 768px) {
+    .carrinho {
+        width: 100vw;
+        left: 0;
+        right: 0;
+        min-width: 0;
+        max-width: 100vw;
+        padding: 0.5rem 0.5rem;
+        border-radius: 0;
+        height: 100vh;
+    }
+    .cart-item {
+        flex-direction: column;
+        gap: 0;
+    }
+    .item-details {
+        padding-top: 10px;
+    }
+    .total, .total2 {
+        padding-left: 10px !important;
+        font-size: 1rem;
+    }
+    .botao-compra {
+        width: 100%;
+        padding: 1rem 0;
+        font-size: 1rem;
+    }
+    .brand-name {
+        font-size: 1.5rem;
+    }
+    .hero-section {
+        padding: 3rem 0.5rem;
+        min-height: 300px;
+    }
+    .product-grid {
+        grid-template-columns: 1fr;
+        padding: 0 0.5rem;
+        gap: 10px;
+    }
+    .contact-section {
+        padding: 0 10px;
+    }
+    .footer-text {
+        font-size: 1rem;
+    }
+}
+
+/* Responsivo para celulares muito pequenos */
+@media (max-width: 480px) {
+    .carrinho {
+        width: 100vw;
+        padding: 0.25rem;
+    }
+    .botao-compra {
+        font-size: 0.9rem;
+        padding: 0.75rem 0;
+    }
+    .product-card img {
+        height: 100px;
+    }
+    .contact-title {
+        font-size: 1.1rem;
+    }
+    .footer-text {
+        font-size: 0.9rem;
+    }
+}
+
+.carrinho,
+.botao-compra,
+.product-grid,
+.total,
+.total2 {
+    transition: all 0.3s ease;
 }

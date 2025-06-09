@@ -239,6 +239,10 @@ a {
     object-fit: contain;
 }
 
+.logo-icon {
+    cursor: pointer;
+}
+
 .brand-name {
     font-size: 3rem;
     white-space: nowrap;
@@ -453,6 +457,50 @@ a {
     color:#5a3b1e;
     font-size: large;
     font-weight: bold;
+    cursor: pointer;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: #f4f4f4;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+#closeSidebar {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#results {
+    list-style: none;
+    padding: 0;
+}
+
+#results li {
+    margin: 5px 0;
+    padding: 10px;
+    background: #ddd;
     cursor: pointer;
 }
 

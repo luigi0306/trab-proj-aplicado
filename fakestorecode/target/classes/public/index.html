@@ -18,11 +18,12 @@
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/febb7047caf042a2f0679868b8e01719a5c9f194?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
             class="logo-icon"
             alt="Logo"
+            id="logo"
           />
         </span>
         <div class="brand-name">
           <span class="opacidade">
-            Noirelle.
+            <a href="index.html">Noirelle.</a>
           </span>
         </div>
         <div class="header-icons">
@@ -52,6 +53,12 @@
         </div>
         <div class="border-line"></div>
       </div>
+
+    <div id="sidebar" class="sidebar">
+      <button id="closeSidebar">X</button>
+      <input type="text" id="searchInput" placeholder="Pesquisar itens..." />
+      <ul id="results"></ul>
+    </div>
 
     <div class="home-container">
       <div class="nav-menu">
@@ -140,7 +147,7 @@
 
       <div class="cart-item scroll-box">
           <div class="item-details">
-            <ul id="carrinho" style="list-style-type: none; padding-left: 20px;";></ul>
+            <ul id="carrinho" style="list-style-type: none;";></ul>
             <hr style="border: 1px solid #6E4A13; opacity: 0.3; margin: 30px 0;">
             <div style="display: flex";>
               <span class="total2">Total:</span>

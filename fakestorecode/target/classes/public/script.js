@@ -9,6 +9,7 @@ const botaoCarrinho = document.getElementById("botaoCarrinho");
 carrinhoContainer.style.position = 'fixed';
 carrinhoContainer.style.zIndex = '9999';
 carrinhoContainer.style.overflowY = 'auto';  
+sidebar.style.zIndex = '9998';
 
 // Abrir carrinho
 function abrirCarrinho(event) {
@@ -109,5 +110,51 @@ function atualizarCarrinho() {
     });
     
 
-    document.getElementById("total").textContent = `R$ ${total}`;
+    document.getElementById("total").textContent = ` R$ ${total}`;
 }
+
+document.getElementById("logo").addEventListener("click", () => {
+  document.getElementById("sidebar").classList.add("open");
+});
+
+document.getElementById("closeSidebar").addEventListener("click", () => {
+  document.getElementById("sidebar").classList.remove("open");
+});
+
+document.getElementById("searchInput").addEventListener("input", async (event) => {
+  const query = event.target.value;
+  const resultsContainer = document.getElementById("results");
+  resultsContainer.innerHTML = "";
+
+  if (query.length > 0) {
+    const response = await fetch(`http://localhost:4567/api/products`);
+    const products = await response.json();
+  
+    const filteredProducts = products.filter((product) =>
+      product.title.toLowerCase().includes(query.toLowerCase())
+    );
+  
+    filteredProducts.forEach((product) => {
+      // Cria o elemento lin (substituto para li)
+      const lin = document.createElement("li");
+  
+      // Cria o elemento de imagem
+      const img2 = document.createElement("img");
+      img2.src = product.image; // URL da imagem do produto
+      img2.alt = product.title; // Texto alternativo
+      img2.style.width = "50px"; // Ajuste o tamanho da imagem, se necessário
+      img2.style.marginRight = "10px";
+  
+      // Cria o elemento de texto (nome do produto)
+      const text2 = document.createElement("span");
+      text2.textContent = product.title;
+  
+      // Adiciona a imagem e o texto ao lin
+      lin.appendChild(img2);
+      lin.appendChild(text2);
+  
+      // Adiciona o lin ao contêiner de resultados
+      resultsContainer.appendChild(lin);
+    });
+  }
+});
