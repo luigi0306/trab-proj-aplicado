@@ -15,70 +15,77 @@
   </head>
   <body>
     <div class="header-container">
+      <span class="opacidade">
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/febb7047caf042a2f0679868b8e01719a5c9f194?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
+          class="logo-icon"
+          alt="Logo"
+          id="logo"
+        />
+      </span>
+      <div class="brand-name">
+        <span class="opacidade">
+          <a href="index.html">Noirelle.</a>
+        </span>
+      </div>
+      <div class="header-icons">
         <span class="opacidade">
           <img
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/febb7047caf042a2f0679868b8e01719a5c9f194?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
-            class="logo-icon"
-            alt="Logo"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/249e158625b7d3051ac49d083b13fb807a53f867?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
+            class="header-icon"
+            alt="Icon"
           />
         </span>
-        <div class="brand-name">
-          <span class="opacidade">
-            <a href="index.html">Noirelle.</a>
-          </span>
-        </div>
-        <div class="header-icons">
-          <span class="opacidade">
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/249e158625b7d3051ac49d083b13fb807a53f867?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
-              class="header-icon"
-              alt="Icon"
-            />
-          </span>
-          <button
-            id="botaoCarrinho"
-            onclick="abrirCarrinho(event)"
-            class="invisivel-funciona"
-          >
-            <span class="desenvisivel">
-              <span class="opacidade">
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/3050118b09997a04f6bee439b384db68f6409fa5?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
-                  class="header-icon"
-                  alt="Icon"
-                />
-              </span>
+        <button
+          id="botaoCarrinho"
+          onclick="abrirCarrinho(event)"
+          class="invisivel-funciona"
+        >
+          <span class="desenvisivel">
+            <span class="opacidade">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/3050118b09997a04f6bee439b384db68f6409fa5?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
+                class="header-icon"
+                alt="Icon"
+              />
             </span>
-            <span id="contador"></span>
-          </button>
-        </div>
-        <div class="border-line"></div>
+          </span>
+          <span id="contador"></span>
+        </button>
       </div>
-
-    <div class="home-container">
-      <div class="nav-menu">
-        <div class="nav-item">
-          <span class="sublinhar">
-            <a href="categorias.html?id=jewelery">NOVIDADES</a>
-          </span>
-        </div>
-        <div class="nav-item">
-          <span class="sublinhar"> <a href="categorias.html?id=men's clothing">CAVALHEIROS</a></span>
-        </div>
-        <div class="nav-item">
-          <span class="sublinhar">
-            <a href="categorias.html?id=women's clothing">DAMAS</a>
-          </span>
-        </div>
-        <div class="nav-item">
-          <span class="sublinhar">
-            <a href="categorias.html?id=jewelery">STYLE DE VIE</a>
-          </span>
-        </div>
-      </div>
-
-      <div class="border-line-dark"></div>
+      <div class="border-line"></div>
     </div>
+
+  <div id="sidebar" class="sidebar">
+    <button id="closeSidebar">X</button>
+    <input type="text" id="searchInput" placeholder="Pesquisar itens..." />
+    <ul id="results"></ul>
+  </div>
+
+  <div class="home-container">
+    <div class="nav-menu">
+      <div class="nav-item">
+        <span class="sublinhar">
+          <a href="categorias.html?id=jewelery">NOVIDADES</a>
+        </span>
+      </div>
+      <div class="nav-item">
+        <span class="sublinhar"> <a href="categorias.html?id=men's clothing">CAVALHEIROS</a></span>
+      </div>
+      <div class="nav-item">
+        <span class="sublinhar">
+          <a href="categorias.html?id=women's clothing">DAMAS</a>
+        </span>
+      </div>
+      <div class="nav-item">
+        <span class="sublinhar">
+          <a href="categorias.html?id=jewelery">STYLE DE VIE</a>
+        </span>
+      </div>
+    </div>
+
+    <div class="border-line-dark"></div>
+  </div>
 
       <div class="main-produto">
         <div class="produto-detail">
