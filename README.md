@@ -60,4 +60,4 @@ trab-proj-aplicado/
 ├── pom.xml                              # Arquivo de configuração Maven
 └── .gitkeep                             # Placeholder para manter diretórios vazios no Git
 ```
-[*Como Executar*](docs/ESTRUTURA.MD)
+[*Como Executar*](docs/ESTRUTURA.md)
