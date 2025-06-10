@@ -28,7 +28,24 @@ html {
 }
 
 .botaoAddCart {
-    padding-top: 5px;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+}
+
+.btn-add-cart{
+    background-color: #412C0C; 
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.btn-add-cart:hover {
+    background-color: #2c1b02; 
 }
 
 .invisivel-funciona {
@@ -351,6 +368,11 @@ a {
 }
 
 .product-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 400px; 
+    box-sizing: border-box;
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 8px;
