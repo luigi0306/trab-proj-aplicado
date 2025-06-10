@@ -30,7 +30,9 @@ O site foi desenvolvido com as seguintes tecnologias:
 ## Concepção e Estilo 
 A proposta estética do site Noirelle é inspirada na elegância da moda francesa, com foco em uma paleta de cores amarronzadas, terrosas e neutras, remetendo à sofisticação e ao estilo bucólico contemporâneo.
 
-A fase de ideação incluiu o desenvolvimento de protótipos no Figma, com rascunhos da estrutura das páginas, definição das cores e posicionamento dos elementos principais.
+O design do site tem grande inspiração nos sites das marcas [Down Jacquards](https://www.downjacquards.com.br/) e [Shui](https://www.shui.com.br/?srsltid=AfmBOopwcd638ly95jucz8Z1osl0NCm6vqIJ_ARxq_50udcRxVwAY6Dv)
+
+A fase de ideação incluiu o desenvolvimento de protótipos no [Figma](https://www.figma.com/proto/nC8bXz3qwXa5BqF6stbith/Figma---ProjetoAplicado?node-id=1-2&t=1T31v9GLAOY2rIdD-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=51%3A19), com rascunhos da estrutura das páginas, definição das cores e posicionamento dos elementos principais.
 
 Os produtos não são de autoria própria, sendo consumidos de uma API externa (FakeStoreAPI - https://fakestoreapi.com/)
 
@@ -60,4 +62,5 @@ trab-proj-aplicado/
 ├── pom.xml                              # Arquivo de configuração Maven
 └── .gitkeep                             # Placeholder para manter diretórios vazios no Git
 ```
-[*Como Executar*](docs/ESTRUTURA.md)
+
+Caso queira executar o código: [*Como Executar*](docs/ESTRUTURA.md)
