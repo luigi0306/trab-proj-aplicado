@@ -1,0 +1,23 @@
+1. Resumo Executivo
+O objetivo principal dos testes foi verificar a funcionalidade, usabilidade e a ausência de bugs críticos antes da entrega final.
+
+Data de Geração: 11/06/2025
+Período de Teste: 15/03/2025 - 11/06/2025
+Versão do Software Testada: Versão Final (Entregue em 09/06/2025)
+
+Ambiente de Teste:
+Navegadores: Google Chrome (v. 125.0), Mozilla Firefox (v. 126.0)
+Sistema Operacional: Windows 10, macOS Ventura
+Dispositivos: Desktop, Mobile (iPhone 13, Samsung Galaxy S22)
+Testador(es): Equipe de QA
+Métrica	Valor
+Total de Casos de Teste Planejados	35
+Casos de Teste Executados	35
+Casos de Teste Aprovados	32
+Casos de Teste Reprovados	2
+Casos de Teste Bloqueados	1
+Defeitos Encontrados	2
+Defeitos Abertos	2
+Defeitos Corrigidos	2
+
+https://docs.google.com/spreadsheets/d/1A3MJAl2AIAdHHvGp4q5u16O-MyjrKBlJ5oXh8zWFpuo/edit?gid=1982819109#gid=1982819109
