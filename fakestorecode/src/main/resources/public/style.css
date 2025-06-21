@@ -15,6 +15,21 @@ body {
     font-family: 'Jacques Francois', sans-serif;
 }
 
+/*finalizarhtml*/
+.titulo-final {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    
+  text-align: center;
+}
+
+.titulo-final .brand-name {
+  text-align: center;
+  
+}
+/**/
+
 /*produtohtml*/
 
 .main-produto {

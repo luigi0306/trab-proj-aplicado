@@ -1,171 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Noirelle - Le terre t-shirt</title>
+    <title>Noirelle - Finalizar Compra</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jacques+Francois&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Jacques+Francois&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-  <!-- Inicio de todas paginas -->
-    <div class="header-container">
-        <span class="opacidade">
-          <img
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/febb7047caf042a2f0679868b8e01719a5c9f194?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
-            class="logo-icon"
-            alt="Logo"
-            id="logo"
-          />
-        </span>
-        <div class="brand-name">
-          <span class="opacidade">
-            <a href="index.html">Noirelle.</a>
-          </span>
-        </div>
-        <div class="header-icons">
-          <span class="opacidade">
-            <img
-              id="login-icon"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/249e158625b7d3051ac49d083b13fb807a53f867?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
-              class="header-icon"
-              alt="Icon"
-            />
-          </span>
-
-          <div id="popupLogin" class="popup hidden">
-            <div class="popup-content">
-              <span class="close-btn" onclick="fecharPopup()">&times;</span>
-
-              <!-- Formulário de Login -->
-              <div id="formLogin">
-                <h2>Login</h2>
-                <input type="text" id="loginEmail" placeholder="Email"><br>
-                <input type="password" id="loginSenha" placeholder="Senha"><br>
-                <button id="btnEntrar">Entrar</button>
-                <p>Não tem conta? <a href="#" onclick="mostrarRegistro()">Registre-se</a></p>
-              </div>
-
-              <!-- Formulário de Registro -->
-              <div id="formRegistro" class="hidden">
-                <h2>Registrar</h2>
-                <input type="text" id="registroNome" placeholder="Nome"><br>
-                <input type="text" id="registroEmail" placeholder="Email"><br>
-                <input type="password" id="registroSenha" placeholder="Senha"><br>
-                <button id="btnRegistrar">Registrar</button>
-                <p>Já tem conta? <a href="#" onclick="mostrarLogin()">Fazer login</a></p>
-              </div>
-
-              <p id="mensagem"></p>
-            </div>
-          </div>
-          <!-- Popup do usuário logado -->
-          <div id="popupUsuario" class="popup hidden">
-            <div class="popup-content">
-              <span class="close-btn" id="fecharUsuario">&times;</span>
-              <h2>Olá, <span id="usuarioNome"></span>!</h2>
-              <p id="usuarioEmail"></p>
-              <button id="btnDeslogar">Deslogar</button>
-            </div>
-          </div>
-
-
-
-          <button
-            id="botaoCarrinho"
-            onclick="abrirCarrinho(event)"
-            class="invisivel-funciona"
-          >
-            <span class="desenvisivel">
-              <span class="opacidade">
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/3050118b09997a04f6bee439b384db68f6409fa5?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
-                  class="header-icon"
-                  alt="Icon"
-                />
-              </span>
-            </span>
-            <span id="contador"></span>
-          </button>
-        </div>
-        <div class="border-line"></div>
-      </div>
-
-    <div id="sidebar" class="sidebar">
-      <button id="closeSidebar">X</button>
-      <input type="text" id="searchInput" placeholder="Pesquisar itens..." />
-      <ul id="results"></ul>
+     <!-- Inicio de todas paginas -->
+   <div class="titulo-final">
+    <div class="brand-name">
+      <span class="opacidade">
+        <a href="index.html">Noirelle.</a>
+      </span>
     </div>
-
-    <div class="home-container">
-      <div class="nav-menu">
-        <div class="nav-item">
-          <span class="sublinhar">
-            <a href="categorias.html?id=jewelery">NOVIDADES</a>
-          </span>
-        </div>
-        <div class="nav-item">
-          <span class="sublinhar"> <a href="categorias.html?id=men's clothing">CAVALHEIROS</a></span>
-        </div>
-        <div class="nav-item">
-          <span class="sublinhar">
-            <a href="categorias.html?id=women's clothing">DAMAS</a>
-          </span>
-        </div>
-        <div class="nav-item">
-          <span class="sublinhar">
-            <a href="categorias.html?id=jewelery">STYLE DE VIE</a>
-          </span>
-        </div>
-      </div>
-
-      <div class="border-line-dark"></div>
-    </div>
+  </div>
+  <div class="border-line"></div>
 
     <!-- Final do inicio de todas paginas -->
 
-    <div class="hero-section">
-        <div class="hero-content">
-          <div class="hero-title1">Parabens, sua compra foi realizada com sucesso!!!</div>
-          <div class="hero-cta">
-            
-          </div>
-        </div>
+    <div id="resumoCompra" style="text-align: center; margin: 30px auto; max-width: 600px; margin-top: -0.05rem;">
+      <h2>Finalize sua compra dos seguintes produtos:</h2>
+      <ul id="listaProdutos" style="list-style-type: none; padding: 0; max-width: 600px; margin: auto;margin-top: 0.5rem;"></ul>
+
+      <h3>Pagamento via PIX</h3>
+      <img id="qrcodePix" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Pagamento%20Noirelle" alt="QR Code PIX" />
     </div>
-  </div>
 
-            <div class="contact-section">
-              <div class="contact-heading">CONTATO</div>
-              <div class="contact-item">
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/05329ec5e5e21064ad041b604629f411e8fb8b78?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
-                  class="contact-icon"
-                  alt="Email icon"
-                />
-                <div class="contact-text underlined">noirelle.contato@gmail.com</div>
-              </div>
-              <div class="contact-item">
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/11964c6df84b2f0b35b7e52dbde0ab769686f7ed?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
-                  class="contact-icon"
-                  alt="Instagram icon"
-                />
-                <div class="contact-text">@NoirelleVetements</div>
-              </div>
-              <div class="footer-text">Produzido por Luca Matos Parente o rei do mundo</div>
-            </div>
-          </div>
-        </div>
+    <div class="contact-section">
+      <div class="contact-heading">CONTATO</div>
+      <div class="contact-item">
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/05329ec5e5e21064ad041b604629f411e8fb8b78?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
+          class="contact-icon"
+          alt="Email icon"
+        />
+        <div class="contact-text underlined">noirelle.contato@gmail.com</div>
       </div>
-    
+      <div class="contact-item">
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/11964c6df84b2f0b35b7e52dbde0ab769686f7ed?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
+          class="contact-icon"
+          alt="Instagram icon"
+        />
+        <div class="contact-text">@NoirelleVetements</div>
+      </div>
+      <div class="footer-text">Produzido por Luca Matos Parente o rei do mundo</div>
+    </div>
 
-    <script src="script.js"></script>
-    
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+  const lista = document.getElementById("listaProdutos");
+  const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+  if (carrinho.length === 0) {
+    lista.innerHTML = "<p>Nenhum produto no carrinho.</p>";
+    return;
+  }
+
+  let totalCompra = 0;
+  lista.innerHTML = ""; // limpa lista
+
+  carrinho.forEach((item, index) => {
+    totalCompra += item.preco * item.qtd;
+
+    const li = document.createElement("li");
+    li.style.display = "flex";
+    li.style.alignItems = "center";
+    li.style.marginBottom = "15px";
+    li.style.gap = "15px";
+    li.style.paddingBottom = "10px";
+
+    // Adiciona uma borda inferior em todos, exceto no último
+    if (index !== carrinho.length - 1) {
+      li.style.borderBottom = "1px solid #ccc";
+    }
+
+    li.innerHTML = `
+      <img src="${item.img}" alt="${item.nome}" style="width: 80px; height: auto; border-radius: 8px;" />
+      <div>
+        <strong>${item.nome}</strong><br>
+        Quantidade: ${item.qtd}<br>
+        Tamanho: ${item.tamanho}<br>
+        Preço unitário: R$${item.preco.toFixed(2)}<br>
+        Subtotal: R$${(item.preco * item.qtd).toFixed(2)}
+      </div>
+    `;
+
+    lista.appendChild(li);
+  });
+
+  // Exibe o total após a lista
+  const totalElement = document.createElement("p");
+  totalElement.style.fontWeight = "bold";
+  totalElement.style.fontSize = "1.2rem";
+  totalElement.style.textAlign = "center"; // centraliza o texto
+  totalElement.style.marginTop = "20px";
+  totalElement.textContent = `Total da compra: R$${totalCompra.toFixed(2)}`;
+
+  lista.appendChild(totalElement);
+
+  // Limpa carrinho depois de exibir
+  localStorage.removeItem("carrinho");
+  localStorage.setItem("contadorCarrinho", "0");
+});
+
+
+    </script>
   </body>
 </html>
