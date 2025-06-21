@@ -370,16 +370,19 @@ a {
 .nav-menu {
     display: flex;
     justify-content: center;
-    gap: 80px;
+    gap: 20px; /* reduzi o gap para ficar mais flexível */
     margin-top: -10px;
     font-size: 1rem;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* impede quebra de linha */
     padding: 20px;
+    overflow-x: auto; /* adiciona scroll horizontal se não couber */
 }
 
 .nav-item {
-    white-space: nowrap;
+    flex-shrink: 1; /* permite encolher os itens */
+    white-space: nowrap; /* evita quebra de texto nos itens */
 }
+
 
 /* Hero */
 .hero-section {
@@ -631,6 +634,25 @@ a {
     .contact-section {
         padding: 0 40px;
     }
+}
+@media (max-width: 900px) {
+  .nav-menu {
+    font-size: 0.9rem;
+  }
+}
+
+/* Quando a tela for menor que 600px */
+@media (max-width: 600px) {
+  .nav-menu {
+    font-size: 0.7rem;
+  }
+}
+
+/* Quando a tela for menor que 400px */
+@media (max-width: 400px) {
+  .nav-menu {
+    font-size: 0.7rem;
+  }
 }
 
 /* Responsivo para celulares */
