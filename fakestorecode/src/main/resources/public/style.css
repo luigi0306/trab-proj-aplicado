@@ -21,6 +21,19 @@ body {
     margin-top: 10px;
 } 
 
+.sizeProduto-box {
+  cursor: pointer;
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.sizeProduto-box.tamanho-selecionado {
+  border: 2px solid #412C0C;
+  background-color: #f2e8d9;
+  font-weight: bold;
+}
+
 /**/
 
 html {
@@ -28,10 +41,9 @@ html {
 }
 
 .botaoAddCart {
-    position: absolute;
-    top: 90%;
-    left: 50%;
-    transform: translate(-50%, -60%);
+  margin-top: 20px;
+  display: flex;
+  justify-content: left;
 }
 
 .btn-add-cart{

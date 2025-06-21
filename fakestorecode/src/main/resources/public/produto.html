@@ -14,6 +14,10 @@
     />
   </head>
   <body>
+    <script>
+      let tamanhoSelecionado = null;
+    </script>
+
     <!-- Inicio de todas paginas -->
     <div class="header-container">
         <span class="opacidade">
@@ -75,8 +79,6 @@
             </div>
           </div>
 
-
-
           <button
             id="botaoCarrinho"
             onclick="abrirCarrinho(event)"
@@ -128,6 +130,24 @@
       <div class="border-line-dark"></div>
     </div>
 
+    <script>
+  function selecionarTamanho(tamanho) {
+    tamanhoSelecionado = tamanho;
+
+    // Remove a classe ativa de todos
+    document.querySelectorAll(".sizeProduto-box").forEach((el) =>
+      el.classList.remove("tamanho-selecionado")
+    );
+
+    // Adiciona classe ativa ao selecionado
+    const selecionado = document.querySelector(`.sizeProduto-box[data-tamanho="${tamanho}"]`);
+    if (selecionado) {
+      selecionado.classList.add("tamanho-selecionado");
+    }
+  }
+</script>
+
+
       <div class="main-produto">
         <div class="produto-detail">
           <div class="produto-grid">
@@ -143,53 +163,73 @@
                   container.innerHTML = `
                     <div class="linha">
                       <img src="${product.image}" alt="${product.title}" width="300">
-
                       <div class="coluna">
-                      <h1>${product.title}</h1>
-                      <h3 style="color: ##412C0C">R$ ${product.price.toFixed(2)}</h3>
+                        <h1>${product.title}</h1>
+                        <h3 style="color: #412C0C">R$ ${product.price.toFixed(2)}</h3>
+                        <div class="produto-info-column">
+                          <div class="produto-info">
+                            <div class="produto-discount">5% de desconto no pix</div>
+                            <div class="size-label">Tamanho:</div>
+                            <div class="size-options linha">
+                              <div class="size-option"><div class="sizeProduto-box" data-tamanho="P" onclick="selecionarTamanho('P')">P</div></div>
+                              <div class="size-option"><div class="sizeProduto-box" data-tamanho="M" onclick="selecionarTamanho('M')">M</div></div>
+                              <div class="size-option"><div class="sizeProduto-box" data-tamanho="G" onclick="selecionarTamanho('G')">G</div></div>
 
-                      <div class="produto-info-column">
-                        <div class="produto-info">
-                          <div class="produto-discount">5% de desconto no pix</div>
-                          <div class="size-label">Tamanho:</div>
-                          <div class="size-options linha">
-                            
-                              <div class="size-option"><div class="size-box">P</div></div>
-                              <div class="size-option"><div class="size-box">M</div></div>
-                              <div class="size-option"><div class="size-box">G</div></div>
-                            
-                          </div>
+                            </div>
 
-                          <div class="quantity-container">
-                            <div class="quantity-selector">
-                              <div class="border-top"></div>
-                              <div class="quantity-content">
-                                <div class="quantity-wrapper">
-                                  <div class="quantity-inner">
-                                    <div class="border-left"></div>
-                                    <div class="quantity-value">&lt; 1 &gt;</div>
-                                  </div>
-                                  <div class="border-bottom"></div>
-                                </div>
-                                <div class="border-right"></div>
+                            <div class="quantity-container">
+                              <label for="quantidadeProduto">Quantidade:</label>
+                              <div style="display: flex; align-items: center; gap: 10px;">
+                                <button onclick="alterarQuantidade(-1)">−</button>
+                                <span id="quantidadeProduto">1</span>
+                                <button onclick="alterarQuantidade(1)">+</button>
                               </div>
                             </div>
+
                             <div class="buy-button">
                               <div class="botaoAddCart">
-                                <button onclick="adicionarAoCarrinho('${product.title}', ${product.price}, '${product.image}', ${product.id}) class="btn-add-cart"">Comprar</button>
+                                <button onclick="comprarProduto('${product.title}', ${product.price}, '${product.image}', ${product.id})">
+                                  Comprar
+                                </button>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
                   `;
+                  const quantidadeProduto = document.getElementById("quantidadeProduto");
+                  
+
                 })
                 .catch(() => {
                   container.innerHTML = "<p>Produto não encontrado.</p>";
                 });
             </script>
+
+            <script>
+              let quantidadeAtual = 1;
+
+              function alterarQuantidade(delta) {
+                quantidadeAtual += delta;
+                if (quantidadeAtual < 1) quantidadeAtual = 1;
+                document.getElementById("quantidadeProduto").textContent = quantidadeAtual;
+              }
+
+              function comprarProduto(nome, preco, imagem, id) {
+                if (!tamanhoSelecionado) {
+                  alert("Por favor, selecione um tamanho.");
+                  return;
+                }
+
+                const idComTamanho = `${id}-${tamanhoSelecionado}`;
+                adicionarAoCarrinhoComQuantidade(nome, preco, imagem, idComTamanho, quantidadeAtual, tamanhoSelecionado);
+                quantidadeAtual = 1;
+                document.getElementById("quantidadeProduto").textContent = quantidadeAtual;
+              }
+
+            </script>
+
 
             <div id="products" class="product-grid"></div>
 
@@ -214,7 +254,7 @@
                             </a>
                           </div>
                           <div class="botaoAddCart">
-                            <button onclick="adicionarAoCarrinho('${product.title}', ${product.price}, '${product.image}', ${product.id})">
+                             <button onclick="adicionarAoCarrinhoComQuantidade('${product.title}', ${product.price}, '${product.image}', '${product.id}-P', 1, 'P')" class="btn-add-cart">
                               Adicionar ao carrinho
                             </button>
                           </div>

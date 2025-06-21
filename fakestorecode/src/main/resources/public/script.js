@@ -209,7 +209,7 @@ function adicionarAoCarrinho(nome, preco, img, id) {
     if (item) {
         item.qtd++;
     } else {
-        carrinho.push({ nome, preco, img, id, qtd: 1 });
+        carrinho.push({ nome, preco, img, idComTamanho, qtd: 1 });
         qtdCarrinho++;
         document.getElementById("contador").innerText = qtdCarrinho;
     }
@@ -218,6 +218,23 @@ function adicionarAoCarrinho(nome, preco, img, id) {
     salvarCarrinho();
     atualizarCarrinho();
 }
+
+function adicionarAoCarrinhoComQuantidade(nome, preco, img, id, quantidade, tamanho) {
+  const item = carrinho.find(item => item.id === id);
+  if (item) {
+    item.qtd += quantidade;
+  } else {
+    carrinho.push({ nome, preco, img, id, qtd: quantidade, tamanho });
+    qtdCarrinho++;
+    document.getElementById("contador").innerText = qtdCarrinho;
+  }
+
+  total += preco * quantidade;
+  total = parseFloat(total.toFixed(2));
+  salvarCarrinho();
+  atualizarCarrinho();
+}
+
 
 function salvarCarrinho() {
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
@@ -269,7 +286,8 @@ function atualizarCarrinho() {
     
        
         const texto = document.createElement("span");
-        texto.innerHTML = `${item.nome} <br> R$${item.preco} - Qtd: ${item.qtd}`;
+        texto.innerHTML = `${item.nome} (${item.tamanho})<br> R$${item.preco} - Qtd: ${item.qtd}`;
+
     
         const botaoRemover = document.createElement("button");
         botaoRemover.textContent = "Remover";
