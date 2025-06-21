@@ -1,3 +1,166 @@
+//login configs
+document.addEventListener("DOMContentLoaded", () => {
+  const loginIcon = document.getElementById("login-icon");
+  const popupLogin = document.getElementById("popupLogin");
+  const mensagem = document.getElementById("mensagem");
+  const popupUsuario = document.getElementById("popupUsuario");
+  const usuarioNomeSpan = document.getElementById("usuarioNome");
+  const usuarioEmailP = document.getElementById("usuarioEmail");
+  const btnDeslogar = document.getElementById("btnDeslogar");
+
+  // Formulários
+  const formLogin = document.getElementById("formLogin");
+  const formRegistro = document.getElementById("formRegistro");
+
+  // Inputs Login
+  const loginEmail = document.getElementById("loginEmail");
+  const loginSenha = document.getElementById("loginSenha");
+
+  // Inputs Registro
+  const registroNome = document.getElementById("registroNome");
+  const registroEmail = document.getElementById("registroEmail");
+  const registroSenha = document.getElementById("registroSenha");
+
+  if (loginIcon) {
+    loginIcon.addEventListener("click", () => {
+      mostrarLogin(); // Garante que o formulário de login esteja visível
+      popupLogin.classList.remove("hidden");
+      mensagem.textContent = "";
+    });
+  }
+
+  document.getElementById("btnEntrar").addEventListener("click", (e) => {
+    e.preventDefault();
+    login();
+  });
+
+  document.getElementById("btnRegistrar").addEventListener("click", (e) => {
+    e.preventDefault();
+    registrar();
+  });
+
+  document.querySelector(".close-btn").addEventListener("click", fecharPopup);
+
+  function fecharPopup() {
+    popupLogin.classList.add("hidden");
+    mensagem.textContent = "";
+  }
+
+  // Torna visível fora do escopo local
+window.mostrarRegistro = function () {
+  formLogin.classList.add("hidden");
+  formRegistro.classList.remove("hidden");
+  mensagem.textContent = "";
+};
+
+window.mostrarLogin = function () {
+  formRegistro.classList.add("hidden");
+  formLogin.classList.remove("hidden");
+  mensagem.textContent = "";
+};
+
+
+  function login() {
+    const email = loginEmail.value.trim();
+    const senha = loginSenha.value.trim();
+
+    if (email === "admin" && senha === "admin") {
+      localStorage.setItem("usuarioLogado", "admin");
+      window.location.href = "admin.html";
+      return;
+    }
+
+    const dados = JSON.parse(localStorage.getItem(email));
+
+    if (dados && dados.senha === senha) {
+      localStorage.setItem("usuarioLogado", email);
+      mensagem.textContent = "Login bem-sucedido!";
+      fecharPopup();
+    } else {
+      mensagem.textContent = "Email ou senha inválidos.";
+    }
+  }
+
+  function registrar() {
+    const nome = registroNome.value.trim();
+    const email = registroEmail.value.trim();
+    const senha = registroSenha.value.trim();
+
+    if (!nome || !email || !senha) {
+      mensagem.textContent = "Preencha todos os campos.";
+      return;
+    }
+
+    if (localStorage.getItem(email)) {
+      mensagem.textContent = "Usuário já existe.";
+      return;
+    }
+
+    const usuario = {
+      nome: nome,
+      senha: senha
+    };
+
+    localStorage.setItem(email, JSON.stringify(usuario));
+    mensagem.textContent = "Registro bem-sucedido! Faça login.";
+    mostrarLogin();
+  }
+
+  function abrirPopupUsuario() {
+  // Busca o email do usuário logado
+  const emailLogado = localStorage.getItem("usuarioLogado");
+
+  if (!emailLogado) {
+    return; // não deve acontecer, só para garantir
+  }
+
+  // Recupera os dados do usuário do localStorage
+  const dadosUsuario = JSON.parse(localStorage.getItem(emailLogado));
+
+  // Se for admin (que você usou direto "admin" como usuário), pode customizar também
+  if (emailLogado === "admin") {
+    usuarioNomeSpan.textContent = "Administrador";
+    usuarioEmailP.textContent = "admin@noirelle.com";
+  } else if (dadosUsuario) {
+    usuarioNomeSpan.textContent = dadosUsuario.nome || "Usuário";
+    usuarioEmailP.textContent = emailLogado;
+  } else {
+    usuarioNomeSpan.textContent = "Usuário";
+    usuarioEmailP.textContent = emailLogado;
+  }
+
+  // Esconde popup login e mostra popup usuário
+  popupLogin.classList.add("hidden");
+  popupUsuario.classList.remove("hidden");
+}
+
+// Modifica evento do ícone de login para abrir um popup diferente se estiver logado
+loginIcon.addEventListener("click", () => {
+  const usuarioLogado = localStorage.getItem("usuarioLogado");
+  if (usuarioLogado) {
+    abrirPopupUsuario();
+  } else {
+    mostrarLogin();
+    popupLogin.classList.remove("hidden");
+    popupUsuario.classList.add("hidden");
+  }
+});
+
+// Fecha popup usuário
+document.getElementById("fecharUsuario").addEventListener("click", () => {
+  popupUsuario.classList.add("hidden");
+});
+
+// Botão deslogar
+btnDeslogar.addEventListener("click", () => {
+  localStorage.removeItem("usuarioLogado");
+  popupUsuario.classList.add("hidden");
+  mensagem.textContent = "Você saiu da conta.";
+});
+});
+
+
+
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 let total = 0, qtdCarrinho = 0;
 carrinho.forEach((item, index) => {

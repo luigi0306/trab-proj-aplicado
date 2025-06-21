@@ -226,6 +226,61 @@ html {
     padding-top: 0px;
 }
 
+/* POP UP LOGIN*/
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  .popup.hidden {
+    display: none;
+  }
+
+  .hidden {
+  display: none;
+}
+
+
+  .popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    width: 300px;
+    text-align: center;
+    position: relative;
+  }
+
+  .popup-content input {
+    margin: 5px 0;
+    width: 90%;
+    padding: 8px;
+  }
+
+  .popup-content button {
+    margin-top: 10px;
+    width: 90%;
+    padding: 8px;
+    cursor: pointer;
+  }
+
+  .close-btn {
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+/**/
+
 .border-line{
     margin-left: -10px;
     margin-right: -10px;
