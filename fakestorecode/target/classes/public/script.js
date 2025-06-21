@@ -69,16 +69,17 @@ function removerDoCarrinho(index) {
         total = 0;
     }
 
-    qtdCarrinho--;
-    if(qtdCarrinho < 0) {
-        qtdCarrinho = 0;
-    }
-    document.getElementById("contador").innerText = qtdCarrinho;
     if (carrinho[index].qtd > 1) {
         carrinho[index].qtd--;
+        // Não altera qtdCarrinho, pois o item ainda está no carrinho
     } else {
         carrinho.splice(index, 1);
+        qtdCarrinho--; // Só diminui quando remove o item do array
+        if(qtdCarrinho < 0) {
+            qtdCarrinho = 0;
+        }
     }
+    document.getElementById("contador").innerText = qtdCarrinho;
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
     atualizarCarrinho();
 }
