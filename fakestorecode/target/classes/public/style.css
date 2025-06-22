@@ -58,13 +58,19 @@ html {
 .botaoAddCart {
   margin-top: 20px;
   display: flex;
+  justify-content: center;
+}
+
+.botaoAddCart2 {
+  margin-top: 20px;
+  display: flex;
   justify-content: left;
 }
 
 .btn-add-cart{
     background-color: #412C0C; 
     color: white;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.5rem;
     border: none;
     border-radius: 5px;
     font-size: 0.8rem;
