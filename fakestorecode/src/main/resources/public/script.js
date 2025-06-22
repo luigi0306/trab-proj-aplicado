@@ -124,11 +124,12 @@ window.mostrarLogin = function () {
 
   if (emailLogado === "admin") {
     const adminOptionsDiv = document.getElementById("adminOptions");
+    adminOptionsDiv.innerHTML = "";
     usuarioNomeSpan.textContent = "Administrador";
     usuarioEmailP.textContent = "admin@noirelle.com";
     const botaoEstoque = document.createElement("button");
     botaoEstoque.textContent = "Ir para Estoque";
-    botaoEstoque.classList.add("btn-estoque"); // você pode estilizar isso no CSS
+    botaoEstoque.classList.add("btn-estoque"); 
     botaoEstoque.onclick = () => {
       window.location.href = "admin.html";
     };
