@@ -14,7 +14,17 @@
     />
   </head>
   <body>
-    
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const usuarioLogado = localStorage.getItem("usuarioLogado");
+
+        if (usuarioLogado !== "admin") {
+          alert("Acesso restrito. Faça login como administrador.");
+          window.location.href = "index.html"; // ou a página de login
+        }
+      });
+    </script>
+
     <div class="titulo-final">
     <div class="brand-name">
       <span class="opacidade">

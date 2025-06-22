@@ -62,7 +62,11 @@ window.mostrarLogin = function () {
 
     if (email === "admin" && senha === "admin") {
       localStorage.setItem("usuarioLogado", "admin");
-      window.location.href = "admin.html";
+      mensagem.textContent = "Login de Administrador bem-sucedido!";
+      setTimeout(() => {
+        fecharPopup();
+        abrirPopupUsuario(); // abre o popup do usuário logado
+      }, 1000);
       return;
     }
 
@@ -71,7 +75,9 @@ window.mostrarLogin = function () {
     if (dados && dados.senha === senha) {
       localStorage.setItem("usuarioLogado", email);
       mensagem.textContent = "Login bem-sucedido!";
-      fecharPopup();
+      setTimeout(() => {
+        fecharPopup();
+      }, 1000);
     } else {
       mensagem.textContent = "Email ou senha inválidos.";
     }
@@ -107,15 +113,26 @@ window.mostrarLogin = function () {
   const emailLogado = localStorage.getItem("usuarioLogado");
 
   if (!emailLogado) {
+     adminOptionsDiv.innerHTML = "";
     return; 
   }
 
   // Recupera os dados do usuário do localStorage
   const dadosUsuario = JSON.parse(localStorage.getItem(emailLogado));
+  
+
 
   if (emailLogado === "admin") {
+    const adminOptionsDiv = document.getElementById("adminOptions");
     usuarioNomeSpan.textContent = "Administrador";
     usuarioEmailP.textContent = "admin@noirelle.com";
+    const botaoEstoque = document.createElement("button");
+    botaoEstoque.textContent = "Ir para Estoque";
+    botaoEstoque.classList.add("btn-estoque"); // você pode estilizar isso no CSS
+    botaoEstoque.onclick = () => {
+      window.location.href = "admin.html";
+    };
+    adminOptionsDiv.appendChild(botaoEstoque);
   } else if (dadosUsuario) {
     usuarioNomeSpan.textContent = dadosUsuario.nome || "Usuário";
     usuarioEmailP.textContent = emailLogado;
