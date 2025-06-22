@@ -8,22 +8,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const usuarioEmailP = document.getElementById("usuarioEmail");
   const btnDeslogar = document.getElementById("btnDeslogar");
 
-  // Formulários
   const formLogin = document.getElementById("formLogin");
   const formRegistro = document.getElementById("formRegistro");
 
-  // Inputs Login
   const loginEmail = document.getElementById("loginEmail");
   const loginSenha = document.getElementById("loginSenha");
 
-  // Inputs Registro
   const registroNome = document.getElementById("registroNome");
   const registroEmail = document.getElementById("registroEmail");
   const registroSenha = document.getElementById("registroSenha");
 
   if (loginIcon) {
     loginIcon.addEventListener("click", () => {
-      mostrarLogin(); // Garante que o formulário de login esteja visível
+      mostrarLogin(); 
       popupLogin.classList.remove("hidden");
       mensagem.textContent = "";
     });
@@ -45,8 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     popupLogin.classList.add("hidden");
     mensagem.textContent = "";
   }
-
-  // Torna visível fora do escopo local
+  
 window.mostrarRegistro = function () {
   formLogin.classList.add("hidden");
   formRegistro.classList.remove("hidden");
@@ -107,17 +103,16 @@ window.mostrarLogin = function () {
   }
 
   function abrirPopupUsuario() {
-  // Busca o email do usuário logado
+  
   const emailLogado = localStorage.getItem("usuarioLogado");
 
   if (!emailLogado) {
-    return; // não deve acontecer, só para garantir
+    return; 
   }
 
   // Recupera os dados do usuário do localStorage
   const dadosUsuario = JSON.parse(localStorage.getItem(emailLogado));
 
-  // Se for admin (que você usou direto "admin" como usuário), pode customizar também
   if (emailLogado === "admin") {
     usuarioNomeSpan.textContent = "Administrador";
     usuarioEmailP.textContent = "admin@noirelle.com";
@@ -129,12 +124,10 @@ window.mostrarLogin = function () {
     usuarioEmailP.textContent = emailLogado;
   }
 
-  // Esconde popup login e mostra popup usuário
   popupLogin.classList.add("hidden");
   popupUsuario.classList.remove("hidden");
 }
 
-// Modifica evento do ícone de login para abrir um popup diferente se estiver logado
 loginIcon.addEventListener("click", () => {
   const usuarioLogado = localStorage.getItem("usuarioLogado");
   if (usuarioLogado) {
@@ -146,12 +139,10 @@ loginIcon.addEventListener("click", () => {
   }
 });
 
-// Fecha popup usuário
 document.getElementById("fecharUsuario").addEventListener("click", () => {
   popupUsuario.classList.add("hidden");
 });
 
-// Botão deslogar
 btnDeslogar.addEventListener("click", () => {
   localStorage.removeItem("usuarioLogado");
   popupUsuario.classList.add("hidden");
@@ -159,7 +150,7 @@ btnDeslogar.addEventListener("click", () => {
 });
 });
 
-
+//Carrinho 
 
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 let total = 0, qtdCarrinho = 0;
@@ -172,29 +163,25 @@ const carrinhoContainer = document.getElementById("carrinhoContainer");
 const textoCarrinho = document.getElementById("textoCarrinho");
 const botaoCarrinho = document.getElementById("botaoCarrinho");
 
-// Estiliza para sobrepor outros elementos
 carrinhoContainer.style.position = 'fixed';
 carrinhoContainer.style.zIndex = '9999';
 carrinhoContainer.style.overflowY = 'auto';  
 sidebar.style.zIndex = '9998';
 
-// Abrir carrinho
 function abrirCarrinho(event) {
-    event.stopPropagation(); // Evita fechar ao clicar no botão
+    event.stopPropagation(); 
     carrinhoContainer.style.display = "block";
     document.body.style.overflow = "hidden";
     console.log("A");
     atualizarCarrinho();
 }
 
-// Fechar carrinho
 function fecharCarrinho() {
     console.log("B");
     document.body.style.overflow = "auto";
     carrinhoContainer.style.display = "none";
 }
 
-// Clicar fora do carrinho fecha ele
 document.addEventListener("click", function (event) {
     const isClickDentro = carrinhoContainer.contains(event.target);
     const isBotaoCarrinho = botaoCarrinho.contains(event.target);
@@ -203,7 +190,6 @@ document.addEventListener("click", function (event) {
     }
 });
 
-// Adicionar item
 function adicionarAoCarrinho(nome, preco, img, id) {
     const item = carrinho.find(item => item.id === id);
     if (item) {
@@ -235,12 +221,10 @@ function adicionarAoCarrinhoComQuantidade(nome, preco, img, id, quantidade, tama
   atualizarCarrinho();
 }
 
-
 function salvarCarrinho() {
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
 }
 
-// Remover item
 function removerDoCarrinho(index) {
     if (total >= 0) {
         total -= carrinho[index].preco;
@@ -251,10 +235,10 @@ function removerDoCarrinho(index) {
 
     if (carrinho[index].qtd > 1) {
         carrinho[index].qtd--;
-        // Não altera qtdCarrinho, pois o item ainda está no carrinho
+        
     } else {
         carrinho.splice(index, 1);
-        qtdCarrinho--; // Só diminui quando remove o item do array
+        qtdCarrinho--; 
         if(qtdCarrinho < 0) {
             qtdCarrinho = 0;
         }
@@ -332,18 +316,21 @@ document.getElementById("searchInput").addEventListener("input", async (event) =
     );
   
     filteredProducts.forEach((product) => {
-      // Cria o elemento lin (substituto para li)
-      const lin = document.createElement("div");
+      if (product.category === "women's clothing" ||
+              product.category === "men's clothing" ||
+              product.category === "jewelery") 
+      {
+        const lin = document.createElement("div");
 
       lin.addEventListener("click", () => {
         window.location.href = `produto.html?id=${product.id}`;
       });
   
-      // Cria o elemento de imagem
+      
       const img2 = document.createElement("img");
-      img2.src = product.image; // URL da imagem do produto
-      img2.alt = product.title; // Texto alternativo
-      img2.style.width = "50px"; // Ajuste o tamanho da imagem, se necessário
+      img2.src = product.image; 
+      img2.alt = product.title; 
+      img2.style.width = "50px"; 
       img2.style.marginRight = "10px";
       img2.style.marginBottom  = "20px";
       img2.style.cursor = "pointer"; 
@@ -352,17 +339,15 @@ document.getElementById("searchInput").addEventListener("input", async (event) =
       lin.style.alignItems = "top";
       lin.style.cursor = "pointer";
       lin.style.backgroundColor = "#f4f4f4";
-  
-      // Cria o elemento de texto (nome do produto)
+
       const text2 = document.createElement("span");
       text2.innerHTML = product.title + "<br>" + "R$ " + product.price.toFixed(2);
   
-      // Adiciona a imagem e o texto ao lin
       lin.appendChild(img2);
       lin.appendChild(text2);
   
-      // Adiciona o lin ao contêiner de resultados
       resultsContainer.appendChild(lin);
+      }
     });
   }
 });
