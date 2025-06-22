@@ -360,17 +360,26 @@ document.getElementById("searchInput").addEventListener("input", async (event) =
     const btnFinalizar = document.getElementById("btnFinalizarCompra");
 
     btnFinalizar.addEventListener("click", () => {
-      const usuarioLogado = localStorage.getItem("usuarioLogado");
+    const usuarioLogado = localStorage.getItem("usuarioLogado");
+    const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
-      if (usuarioLogado) {
-        // Usuário logado, redireciona
-        window.location.href = "finalizar.html";
-      } else {
-        alert("Você precisa estar logado para finalizar a compra.");
-        document.getElementById("popupLogin").classList.remove("hidden");
-        fecharCarrinho();
-      }
-    });
+    if (!usuarioLogado) {
+      alert("Você precisa estar logado para finalizar a compra.");
+      document.getElementById("popupLogin").classList.remove("hidden");
+      fecharCarrinho();
+      return;
+    }
+
+    if (carrinho.length === 0) {
+      alert("Seu carrinho está vazio. Adicione pelo menos um produto para finalizar a compra.");
+      fecharCarrinho();
+      return;
+    }
+
+    // Tudo certo: logado e com produtos
+    window.location.href = "finalizar.html";
+  });
+
   });
 
 
