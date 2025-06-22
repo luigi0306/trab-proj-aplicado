@@ -785,3 +785,27 @@ a {
   border-radius: 5px;
   cursor: pointer;
 }
+
+/*STYLE DE VIE*/
+.styledevie-section {
+  max-width: 800px;
+  margin: 60px auto;
+  margin-top: -0.3rem;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  color: #5a3b1e;
+}
+
+.styledevie-texto h2 {
+  font-family: 'Jacques Francois', serif;
+  font-size: 32px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.styledevie-texto p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}

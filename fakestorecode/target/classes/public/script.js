@@ -353,3 +353,24 @@ document.getElementById("searchInput").addEventListener("input", async (event) =
 });
 
 /*carrinho final */
+
+/*checar login no carrinho */
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const btnFinalizar = document.getElementById("btnFinalizarCompra");
+
+    btnFinalizar.addEventListener("click", () => {
+      const usuarioLogado = localStorage.getItem("usuarioLogado");
+
+      if (usuarioLogado) {
+        // Usuário logado, redireciona
+        window.location.href = "finalizar.html";
+      } else {
+        alert("Você precisa estar logado para finalizar a compra.");
+        document.getElementById("popupLogin").classList.remove("hidden");
+        fecharCarrinho();
+      }
+    });
+  });
+
+
