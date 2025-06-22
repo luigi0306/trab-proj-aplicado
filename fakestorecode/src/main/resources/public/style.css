@@ -417,6 +417,12 @@ a {
     color: #5a3b1e;
 }
 
+.hero-title2 {
+    font-size: 45px;
+    color: #5a3b1e;
+    margin-left: 2rem;
+}
+
 .hero-divider {
     margin: 0.25rem auto;
     border: 2px solid white;
@@ -730,4 +736,52 @@ a {
 .total,
 .total2 {
     transition: all 0.3s ease;
+}
+
+/*Pagina ADM*/
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 30px;
+}
+
+.admin-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: #f7f7f6;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.admin-img {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.admin-info h3 {
+  font-size: 16px;
+  margin: 10px 0 5px;
+}
+
+.estoque-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.estoque-control button {
+  padding: 5px 10px;
+  font-size: 16px;
+  border: none;
+  background-color: #412C0C;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
 }

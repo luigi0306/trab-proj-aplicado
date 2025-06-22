@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Fake Store no VS Code</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noirelle - Le terre t-shirt</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,6 +14,7 @@
     />
   </head>
   <body>
+    
     <!-- Inicio de todas paginas -->
     <div class="header-container">
         <span class="opacidade">
@@ -118,96 +121,19 @@
         </div>
         <div class="nav-item">
           <span class="sublinhar">
-            <a href="styledevie.html">STYLE DE VIE</a>
+            <a href="categorias.html?id=jewelery">STYLE DE VIE</a>
           </span>
         </div>
       </div>
 
       <div class="border-line-dark"></div>
     </div>
+    
 
-    <!-- Final do inicio de todas paginas -->
-
-    <div class="hero-section">
-        <img
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/c516e2ea8e073279d9dfbb7b58634a37c406b202?placeholderIfAbsent=true&apiKey=988493a749a94d739d81ede414496f23"
-          class="hero-image"
-          alt="Hero Image"
-        />
-        <div class="hero-content">
-          <div class="hero-title">Tendance Bucolique</div>
-          <div class="hero-cta">
-            <nav>
-              <a href="#secao1"><span class="borda opacidade">COMPRE AGORA</span></a>
-            </nav>
-            <div class="cta-text"></div>
-          </div>
-        </div>
-    </div>
-
-    <section id="secao1">
-    <div id="products" class="product-grid"></div>
-
-    <script>
-      fetch('http://localhost:4567/api/products')
-        .then((response) => response.json())
-        .then((products) => {
-          const container = document.getElementById('products');
-          products.forEach((product) => {
-            if (
-              product.category === "women's clothing" ||
-              product.category === "men's clothing" ||
-              product.category === "jewelery"
-            ) {
-              container.innerHTML += `
-                <div class="product-card">
-                  <div class="separa">
-                    <a href="produto.html?id=${product.id}">
-                      <img src="${product.image}" alt="${product.title}" />
-                      <h3 class="sublinhar">${product.title}</h3>
-                      <p class="inter-font">$${product.price}</p>
-                    </a>
-                  </div>
-                  <div class="botaoAddCart">
-                    <button onclick="adicionarAoCarrinhoComQuantidade('${product.title}', ${product.price}, '${product.image}', '${product.id}-P', 1, 'P')" class="btn-add-cart">
-                      Adicionar ao carrinho
-                    </button>
-                  </div>
-                </div>
-              `;
-            }
-          });
-        })
-        .catch((error) => console.error('Erro:', error));
-    </script>
-    </section>
-
-    <div class="carrinho" id="carrinhoContainer">
-      
-      <h1 style="padding-top: 10px; text-align: center; color: #412C0C;">Carrinho</h1>
+    
       
 
-      <div class="cart-item scroll-box">
-          <div class="item-details">
-            <ul id="carrinho" style="list-style-type: none;";></ul>
-            <hr style="border: 1px solid #6E4A13; opacity: 0.3; margin: 30px 0;">
-            <div style="display: flex";>
-              <span class="total2">Total:</span>
-              <div class="total" id="total"></div>
-            </div>       
-          </div>
-      </div>
-
-      <center>
-        <a href="finalizar.html">
-          <button class="botao-compra">Finalizar Compra</button>
-        </a>
-        <br>
-        <button onclick="fecharCarrinho()" style="border: none; padding-top: 10px; color: #6E4A13;background-color: #f7f7f6;" class="sublinhar">Fechar Carrinho</button>
-      </center>
-    </div>
-
-    <div class="contact-section">
+            <div class="contact-section">
       <div class="contact-title">CONTATO</div>
       <div class="contact-item">
         <img
@@ -237,6 +163,36 @@
         Produzido por Luca Matos Parente e Luigi Fonini o rei do mundo
       </div>
     </div>
+    
+          </div>
+        </div>
+      </div>
+    
+
+      <div class="carrinho" id="carrinhoContainer">
+      
+        <h1 style="padding-top: 10px; text-align: center; color: #412C0C;">Carrinho</h1>
+        
+  
+        <div class="cart-item scroll-box">
+            <div class="item-details">
+              <ul id="carrinho" style="list-style-type: none; padding-left: 20px;";></ul>
+              <hr style="border: 1px solid #6E4A13; opacity: 0.3; margin: 30px 0;">
+              <div style="display: flex";>
+                <span class="total2">Total:</span>
+                <div class="total" id="total"></div>
+              </div>       
+            </div>
+        </div>
+  
+        <center>
+          <a href="finalizar.html">
+            <button class="botao-compra">Finalizar Compra</button>
+          </a>
+          <br>
+          <button onclick="fecharCarrinho()" style="border: none; padding-top: 10px; color: #6E4A13; background-color: #f7f7f6;" class="sublinhar">Fechar Carrinho</button>
+        </center>
+      </div>
 
     <script src="script.js"></script>
   </body>

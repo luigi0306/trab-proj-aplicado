@@ -80,21 +80,59 @@
       </div>
       <div class="nav-item">
         <span class="sublinhar">
-          <a href="categorias.html?id=jewelery">STYLE DE VIE</a>
+          <a href="styledevie.html">STYLE DE VIE</a>
         </span>
       </div>
     </div>
+      <div class="hero-title2">Gerenciar Estoque</div>
 
-    <div class="hero-section">
-        <div class="hero-content">
-          <div class="hero-title1">ADMN!!!</div>
-          <div class="hero-cta">
-            
-          </div>
-        </div>
-    </div>
+    <section id="admin-products" class="admin-grid"></section>
+    <script>
+        // Simulador de estoque usando localStorage
+        function getEstoque(id) {
+          const estoque = localStorage.getItem(`estoque_${id}`);
+          return estoque ? parseInt(estoque) : 0;
+        }
 
-    
+        function setEstoque(id, quantidade) {
+          localStorage.setItem(`estoque_${id}`, quantidade);
+          document.getElementById(`qtd-${id}`).innerText = quantidade;
+        }
+
+        fetch('https://fakestoreapi.com/products')
+        .then(res => res.json())
+        .then(products => {
+          const container = document.getElementById('admin-products');
+          // Filtra apenas as categorias desejadas
+          const categoriasDesejadas = ["women's clothing", "men's clothing", "jewelery"];
+          products
+            .filter(prod => categoriasDesejadas.includes(prod.category))
+            .forEach(prod => {
+              const estoqueAtual = getEstoque(prod.id);
+              container.innerHTML += `
+                <div class="admin-card">
+                  <img src="${prod.image}" alt="${prod.title}" class="admin-img"/>
+                  <div class="admin-info">
+                    <h3 class="sublinhar">${prod.title}</h3>
+                    <p>Preço: $${prod.price}</p>
+                    <div class="estoque-control">
+                      <button onclick="alterarEstoque(${prod.id}, -1)">−</button>
+                      <span id="qtd-${prod.id}">${estoqueAtual}</span>
+                      <button onclick="alterarEstoque(${prod.id}, 1)">+</button>
+                    </div>
+                  </div>
+                </div>
+              `;
+            });
+        });
+
+        function alterarEstoque(id, delta) {
+          let qtd = getEstoque(id) + delta;
+          if (qtd < 0) qtd = 0;
+          setEstoque(id, qtd);
+        }
+      </script>
+
       
 
     <div class="border-line-dark"></div>
