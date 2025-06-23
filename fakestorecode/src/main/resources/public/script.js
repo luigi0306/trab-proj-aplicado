@@ -135,9 +135,13 @@ window.mostrarLogin = function () {
     };
     adminOptionsDiv.appendChild(botaoEstoque);
   } else if (dadosUsuario) {
+    const adminOptionsDiv = document.getElementById("adminOptions");
+    adminOptionsDiv.innerHTML = "";
     usuarioNomeSpan.textContent = dadosUsuario.nome || "Usuário";
     usuarioEmailP.textContent = emailLogado;
   } else {
+    const adminOptionsDiv = document.getElementById("adminOptions");
+    adminOptionsDiv.innerHTML = "";
     usuarioNomeSpan.textContent = "Usuário";
     usuarioEmailP.textContent = emailLogado;
   }
